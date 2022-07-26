@@ -2,6 +2,9 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 function Register(){
+ 
+ 
+  
   return (
     <Fragment>
       <h1>Register</h1>

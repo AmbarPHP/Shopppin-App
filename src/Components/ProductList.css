@@ -1,0 +1,8 @@
+.product__container {
+   
+    display: flex;
+    flex-direction: row;
+    margin: 30px auto;
+    background-color: rgb(237, 198, 226);
+   
+  }
