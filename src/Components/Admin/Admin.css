@@ -1,0 +1,6 @@
+.admin__container{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: antiquewhite;
+}

@@ -1,18 +1,22 @@
-import ForgotPasswordPage from "./Components/ForgotPasswordPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import Dashboard from "./Components/Dashboard";
-import Login from "./Components/Login";
-import Register from "./Components/Register";
-import ProfilePage from "./Components/ProfilePage";
-import ResetPasswordPage from "./Components/ResetPasswordPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProfilePage from "./pages/ProfilePage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import Admin from "./Components/Admin";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
+
 
 function App() {
   const routes = [
     { path: "/", component: <Register /> },
+    { path: "/admin", component: <Admin/> },
     { path: "/register", component: <Register /> },
     { path: "/login", component: <Login /> },
     { path: "/dashboard", component: <Dashboard /> },
@@ -21,8 +25,8 @@ function App() {
     { path: "/profile", component: <ProfilePage /> },
   ];
 
-  const getRoutes = (allRoutes) =>
-    allRoutes.map((route, index) => {
+  const getRoutes = (allRoutes:any) =>
+    allRoutes.map((route: { collapse: any; path: string; component: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: Key | null | undefined) => {
       if (route.collapse) {
         return getRoutes(route.collapse);
       }
@@ -30,7 +34,6 @@ function App() {
       if (route.path) {
         return (
           <Route
-            exact
             path={route.path}
             element={route.component}
             key={index}
@@ -43,7 +46,6 @@ function App() {
 
   return (
     <Router>
-      
       <Routes>{getRoutes(routes)}</Routes>
     </Router>
   );

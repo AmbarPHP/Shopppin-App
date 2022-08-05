@@ -1,14 +1,15 @@
-import { Fragment } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 import DashboardContent from "./DashboardContent";
+import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 
-function Dashboard(props) {
+function Dashboard(props:any) {
   return (
-    <Fragment>
+    <ShoppingCartProvider>
       <h1>Dashboard de la tienda</h1>
       <NavBar></NavBar>
       <DashboardContent></DashboardContent>
-    </Fragment>
+    </ShoppingCartProvider>
   );
 }
 

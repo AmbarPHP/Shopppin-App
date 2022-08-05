@@ -2,7 +2,7 @@
    
     display: flex;
     flex-direction: row;
-    margin: 30px auto;
-    background-color: rgb(237, 198, 226);
+    align-content:space-around;
+    background-color: rgb(249, 246, 248);
    
   }

@@ -1,31 +1,36 @@
 import { useState, Fragment, useEffect } from "react";
+import React from 'react'
+import Container from "react-bootstrap/Container";
 import ProductList from "./ProductList";
 import Product from "./ProductItem";
-import CategoriesButton from "./CategoriesButton";
+import CategoriesList from "./CategoriesList";
 import ProductItem from "./ProductItem";
 
+
 function DashboardContent() {
-  const [categorySelect, setCategorySelected] = useState("women's clothing");
+  const [filter, setFilter] = useState<string>('');
+
+  //tenia error por no implementar la funcion 
+  //tengo que ejecutar la actulizacion, pero no regreso valores
+  function onSelectFilter(filter:string):void{
+    setFilter(filter);
+  }
 
   useEffect(() => {
-    setCategorySelected(categorySelect);
-    console.log("llama a la handleChange efect");
-  }, [categorySelect]);
+    onSelectFilter(filter);
+    console.log("cambiando la categoria con un click", filter);
+  }, [filter]);
 
 
-  //TODO regresar aqui para visuallizar los productos
-  /*
-
-*/
 
   return (
-    <>
-      <CategoriesButton onClick={setCategorySelected}></CategoriesButton>
-      <ProductList subFilter={categorySelect}>
+    <Container>
+      <CategoriesList onSelectFilter={(filter:string) => setFilter(filter)}></CategoriesList>
+      <ProductList subFilter={filter}>
         <div>Los productos</div>
-        <ProductItem></ProductItem>
+        <ProductItem ></ProductItem>
       </ProductList>
-    </>
+      </Container>
   );
 }
 export default DashboardContent;

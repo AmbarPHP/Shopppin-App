@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import "./ProductList.css";
 import ProductItem from "./ProductItem";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 //todo FILTRAR ESTA CATEGORIA EN SUBCATEGORIAS
 //TODO cambiar a Catalog y pasarle solo los filtros
-function ProductList({ subFilter }) {
+function ProductList({ subFilter }: any): JSX.Element{
   //filtrar los items por categoria
   //https://fakestoreapi.com/products/categories => este debe ser puesto en un select o listarlo en botones
   //
@@ -24,7 +25,7 @@ function ProductList({ subFilter }) {
     //quitar los {} para que sea un string
     let category = subFilter;
     //esto me daria error, por que dice que lee un objeto en la prop
-    console.log("https://fakestoreapi.com/products/category/" + category);
+    console.log("filtrando la busqueda","https://fakestoreapi.com/products/category/" + category);
     //.filter((item) => item.category === {subFilter})
     const UrlAPI = "https://fakestoreapi.com/products/category/" + category;
     fetch(UrlAPI)
@@ -34,9 +35,10 @@ function ProductList({ subFilter }) {
         setIsLoading(false);
       });
   }
+  
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [subFilter]);
 
   if (isLoading) {
     // ⬅️ si está cargando, mostramos un texto que lo indique
@@ -47,20 +49,23 @@ function ProductList({ subFilter }) {
     );
   }
 
-  console.log("Los productos son", products);
+
 
   return (
     <div className="product__container" id="products">
-      {products.map((product, i) => {
-        return <ProductItem key={product.id} product={product} />;
+       <Row xs={1} md={2} lg={3} className="g-3">
+       {products.map((product, i) => {   
+        return (<Col xs={12} md={12} lg={12} >
+          <ProductItem product={product}/>
+        </Col>)
       })}
-      ;
+       </Row>
+    
+      
     </div>
   );
 }
 
-ProductList.protTypes = {
-  products: PropTypes.array,
-};
+
 
 export default ProductList;

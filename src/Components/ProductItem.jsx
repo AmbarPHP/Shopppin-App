@@ -1,69 +1,78 @@
-import { PropTypes } from "prop-types";
 import "./ProductItem.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import React from "react";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
-function ProductItem({ product }) {
-  console.log("los parametros son pasados", product.id);
-  return (
-   
-
-<div className="product__card" key={product.id}>
-    <div className="card__detail">
-      <img src="_Logo_White.png" alt="logo" className="card-logo"/>
-      <div className="product-detail">
-        <h2>{product.title}</h2> 
-      </div>
-      <img src={product.image} className="product__image"/>
-      <span className="back-text">
-              FAS
-            </span>
-    </div>
-    <div className="card-body">
-      <div className="product-desc">
-        <span className="product-title">
-                <b>{product.title}</b>
-                {product.description}
-        </span>
-        <span className="product-caption">
-                Basket Ball Collection
-              </span>
-        <span className="product-rating">
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star grey"></i>
-              </span>
-      </div>
-      <div className="product-properties">
-        <span className="product-size">
-                <h4>Size</h4>
-                <ul className="ul-size">
-                  <li><a href="#">7</a></li>
-                  <li><a href="#">8</a></li>
-                  <li><a href="#">9</a></li>
-                  <li><a href="#" className="active">10</a></li>
-                  <li><a href="#">11</a></li>
-                </ul>
-              </span>
-        <span className="product-color">
-                <h4>Colour</h4>
-                <ul className="ul-color">
-                  <li><a href="#" className="orange active"></a></li>
-                  <li><a href="#" className="green"></a></li>
-                  <li><a href="#" className="yellow"></a></li>
-                </ul>
-              </span>
-        <span className="product-price">
-                USD<b>{product.price}</b>
-              </span>
-      </div>
-    </div>
-  </div>
-  );
+type ProductItemProps={ 
+  id:number
+  title:string
+  price:number
+  image:string
 }
 
-ProductItem.propTypes = {
-  product: PropTypes.object,
-};
+function ProductItem({product}: any ): JSX.Element {
+//function ProductItem({id, title, price, image}|{{id, title, price, image}: ProductItemProps): JSX.Element{
+  console.log("los parametros son pasados", product.title);
+  const {getItemQuantity, increaseCarQuantity, decreaseCarQuantity, removeFromCart}=useShoppingCart()
+
+  const quantity = getItemQuantity(product.id); 
+
+
+  return (
+    <Card key={product.image} className="h-100">
+      <Card.Img
+        src={product.image}
+        variant="top"
+        height="200px"
+        style={{ objectFit: "cover" }}
+      ></Card.Img>
+      <Card.Body className=" d-flex flex-column">
+        <Card.Title
+          className="d-flex 
+        justify-content-space-between
+        aling-items-baseline
+        mb-4"
+        >
+          <span className="ms-2 ">{product.title}</span>
+          <span className="ms-2 text-muted">{product.price}</span>
+        </Card.Title>  
+        <div className="mt-auto">
+            {quantity === 0 ? (
+              <Button className="w-100" onClick={()=>increaseCarQuantity(product.id)}> + Add to de Cart</Button>
+            ) : (
+              <div
+                className="d-flex aling-items-center flex-colum"
+                style={{ gap: ".5rem" }}
+              >
+                <div
+                  className="d-flex align-items-center jsutify-content-center"
+                  style={{ gap: ".5rem" }}
+                >
+                  <Button onClick={()=>increaseCarQuantity(product.id)}>+</Button>
+                  <div>
+                    <span className="fs-3">{quantity}</span> in cart
+                  </div>
+                  <Button onClick={()=>decreaseCarQuantity(product.id)}>-</Button>
+                </div>
+                <Button variant="danger" onClick={()=>removeFromCart(product.id)}>remove</Button>
+              </div>
+            )}
+        </div>
+      
+      </Card.Body>
+    </Card>
+  );
+}
+/**
+ * 
+ ProductItem.propTypes = {
+   product: PropTypes.object,
+ };
+ */
 
 export default ProductItem;
+function getShoppingCart(): { getItemQuantity: any; increaseCarQuantity: any; decreaseCarQuantity: any; removeFromCart: any; } {
+  throw new Error("Function not implemented.");
+}
+
