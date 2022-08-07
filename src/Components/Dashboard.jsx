@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import DashboardContent from "./DashboardContent";
 import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 
-function Dashboard(props:any) {
+function Dashboard(props) {
   return (
     <ShoppingCartProvider>
       <h1>Dashboard de la tienda</h1>

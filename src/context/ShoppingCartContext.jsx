@@ -1,37 +1,21 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import React from "react";
 
-const ShoppingCartContext=createContext({} as ShoppingCartContext);
+const ShoppingCartContext=createContext({});
 
 export function useShoppingCart(){
     return useContext(ShoppingCartContext)
 }
-type ShoppingCartProviderProps = {
-    //lo que carga sera un nodo de react
-    children:ReactNode
-}
 
-type ShoppingCartContext={
-    getItemQuantity:(id:number)=>number
-    increaseCarQuantity:(id:number)=>void
-    decreaseCarQuantity:(id:number)=>void
-    removeFromCart:(id:number)=>void
-}
+export function ShoppingCartProvider({children}){
+    const [cartItems, setCartItems]=useState([])
 
-type CartItem={
-    id:number
-    quantity:number
-}
-
-export function ShoppingCartProvider({children}:ShoppingCartProviderProps){
-    const [cartItems, setCartItems]=useState<CartItem[]>([])
-
-    function getItemQuantity(id:number){
+    function getItemQuantity(id){
         console.log("get quantity");
         return cartItems.find(item=>item.id===id)?.quantity||0
     }
 
-    function increaseCarQuantity(id:number){
+    function increaseCarQuantity(id){
         setCartItems(currItems=>{
             if(currItems.find(item=>item.id===id)==null){
                 return [...currItems,{id, quantity:1}]
@@ -48,7 +32,7 @@ export function ShoppingCartProvider({children}:ShoppingCartProviderProps){
         })
     }
 
-    function removeFromCart(id:number){
+    function removeFromCart(id){
         //remueve el que sea diferente
         setCartItems(currItems=>{
             //tiene que checar si cada id, lo remueve y return todos los demas
@@ -56,7 +40,7 @@ export function ShoppingCartProvider({children}:ShoppingCartProviderProps){
         })
     }
 
-    function decreaseCarQuantity(id:number){
+    function decreaseCarQuantity(id){
         setCartItems(currItems=>{
             if(currItems.find(item=>item.id===id)?.quantity===1){
                 return currItems.filter(item=>item.id!==id)

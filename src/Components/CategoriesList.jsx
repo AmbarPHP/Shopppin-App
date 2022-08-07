@@ -3,19 +3,14 @@ import { Fragment, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-type CategoriesProps={ 
-  id:number
-  categories:string
-}
 
-
-function CategoriesList({onSelectFilter}:any): JSX.Element | JSX.Element[] {
+function CategoriesList({onSelectFilter}) {
   //TODO leer las categorias que existen
   const [category, setCategory] = useState([]); //useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);//useState<boolean>(true);
 
 
-  const getCategory=():void=> {
+  const getCategory=()=> {
     fetch("https://fakestoreapi.com/products/categories")
     .then((res) => res.json())
       .then((res) => {
@@ -40,7 +35,7 @@ function CategoriesList({onSelectFilter}:any): JSX.Element | JSX.Element[] {
 
   return (
     
-      category.map((item:CategoriesProps, index:number) => {
+      category.map((item, index) => {
         return (
           <div>
           <ButtonGroup aria-label="Basic example">

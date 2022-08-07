@@ -8,11 +8,11 @@ import ProductItem from "./ProductItem";
 
 
 function DashboardContent() {
-  const [filter, setFilter] = useState<string>('');
+  const [filter, setFilter] = useState('');
 
   //tenia error por no implementar la funcion 
   //tengo que ejecutar la actulizacion, pero no regreso valores
-  function onSelectFilter(filter:string):void{
+  function onSelectFilter(filter){
     setFilter(filter);
   }
 
@@ -25,7 +25,7 @@ function DashboardContent() {
 
   return (
     <Container>
-      <CategoriesList onSelectFilter={(filter:string) => setFilter(filter)}></CategoriesList>
+      <CategoriesList onSelectFilter={(filter) => setFilter(filter)}></CategoriesList>
       <ProductList subFilter={filter}>
         <div>Los productos</div>
         <ProductItem ></ProductItem>

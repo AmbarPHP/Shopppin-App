@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 //todo FILTRAR ESTA CATEGORIA EN SUBCATEGORIAS
 //TODO cambiar a Catalog y pasarle solo los filtros
-function ProductList({ subFilter }: any): JSX.Element{
+function ProductList({ subFilter }){
   //filtrar los items por categoria
   //https://fakestoreapi.com/products/categories => este debe ser puesto en un select o listarlo en botones
   //

@@ -25,8 +25,8 @@ function App() {
     { path: "/profile", component: <ProfilePage /> },
   ];
 
-  const getRoutes = (allRoutes:any) =>
-    allRoutes.map((route: { collapse: any; path: string; component: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: Key | null | undefined) => {
+  const getRoutes = (allRoutes) =>
+    allRoutes.map((route, index ) => {
       if (route.collapse) {
         return getRoutes(route.collapse);
       }
