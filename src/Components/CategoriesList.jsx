@@ -25,7 +25,6 @@ function CategoriesList({onSelectFilter}) {
   }, []);
 
   if (isLoading) {
-
     return (
       <div className="App">
         <h1>Cargando...</h1>

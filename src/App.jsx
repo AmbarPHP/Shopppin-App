@@ -2,7 +2,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import Dashboard from "./Components/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ProfilePage from "./pages/ProfilePage";
+import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Admin from "./Components/Admin";
 
@@ -13,16 +13,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
 
 
+
 function App() {
   const routes = [
-    { path: "/", component: <Register /> },
+    { path: "/", component: <Dashboard /> },
     { path: "/admin", component: <Admin/> },
     { path: "/register", component: <Register /> },
     { path: "/login", component: <Login /> },
     { path: "/dashboard", component: <Dashboard /> },
     { path: "/forgotPassword", component: <ForgotPasswordPage /> },
     { path: "/resetPassword", component: <ResetPasswordPage /> },
-    { path: "/profile", component: <ProfilePage /> },
+    { path: "/profile", component: <ProfileContainer /> },
   ];
 
   const getRoutes = (allRoutes) =>
