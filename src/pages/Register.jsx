@@ -1,9 +1,8 @@
 import { Fragment, useState } from "react";
-import { Link,useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
 
 function Register() {
   const [firstName, setFirstName] = useState("");
@@ -16,11 +15,10 @@ function Register() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
-     // Using useNavigation for redirecting to pages
-     let history = useNavigate();
+  // Using useNavigation for redirecting to pages
+  let history = useNavigate();
 
   const handleSubmit = (e) => {
-
     if (firstName === "" || email === "" || password === "") {
       console.log("error shows here");
       setError(true);
@@ -28,12 +26,13 @@ function Register() {
       setSubmitted(true);
       setError(false);
       console.log(firstName, lastName, email, password, confirmPassword);
+      history("/dashboard");
     }
 
     e.preventDefault();
 
-     // Redirecting to home page after creation done
-     history('/')
+    // Redirecting to home page after creation done
+    
   };
 
   const handleInputChange = (e) => {
@@ -96,27 +95,23 @@ function Register() {
 
   return (
     <div className="form">
-      
-        <h1>User Registration</h1>
-    
-      {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
-
       <Form onSubmit={handleSubmit}>
         <div className="form-body">
+          <h1>User Registration</h1>
+
+          {/* Calling to the methods */}
+          <div className="messages">
+            {errorMessage()}
+            {successMessage()}
+          </div>
+
           <div className="username">
-            <Form.Label
-              type="text"
-              className="form__label"
-              htmlFor="firstName"
-            >
+            <Form.Label type="text" className="form__label" htmlFor="firstName">
               {" "}
               First Name{" "}
             </Form.Label>
             <Form.Control
+              size="sm"
               className="form__input"
               type="text"
               id="firstName"
@@ -136,6 +131,7 @@ function Register() {
               Last Name{" "}
             </Form.Label>
             <Form.Control
+              size="sm"
               type="text"
               id="lastName"
               className="form__input"
@@ -144,11 +140,13 @@ function Register() {
               placeholder="LastName"
             />
           </div>
+
           <div className="email">
             <Form.Label type="text" className="form__label" htmlFor="email">
               Email{" "}
             </Form.Label>
             <Form.Control
+              size="sm"
               type="email"
               id="email"
               className="form__input"
@@ -162,6 +160,7 @@ function Register() {
               Password{" "}
             </Form.Label>
             <Form.Control
+              size="sm"
               className="form__input"
               type="password"
               id="password"
@@ -179,6 +178,7 @@ function Register() {
               Confirm Password{" "}
             </Form.Label>
             <Form.Control
+              size="sm"
               className="form__input"
               type="password"
               id="confirmPassword"
@@ -187,12 +187,13 @@ function Register() {
               placeholder="Confirm Password"
             />
           </div>
-        </div>
-        <div className="footer">
+        
           <Button type="submit" className="btn">
             Register
           </Button>
+        
         </div>
+       
       </Form>
     </div>
   );

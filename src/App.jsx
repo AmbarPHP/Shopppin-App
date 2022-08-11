@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Admin from "./Components/Admin";
-
+import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
@@ -16,7 +16,7 @@ import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } 
 
 function App() {
   const routes = [
-    { path: "/", component: <Dashboard /> },
+    { path: "/", component: <Login /> },
     { path: "/admin", component: <Admin/> },
     { path: "/register", component: <Register /> },
     { path: "/login", component: <Login /> },

@@ -8,7 +8,7 @@ import yourImg from '../assets/shooping.svg';
 
 function NavBar() {
   return (
-    <Navbar sticky="top" className="bg-white shadow-sm mb-3" expand="lg">
+    <Navbar sticky="top" className="bg-white shadow-sm mb-3" expand="md">
       <Container>
         <Navbar.Brand >Tienda Fake</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,7 +25,7 @@ function NavBar() {
       width:"1rem", height:"1rem"
     }
 
-    .btn-xxl {
+    .btn-md {
       padding: 1rem 1rem;
       font-size: 1.5rem;
     }

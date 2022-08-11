@@ -10,8 +10,6 @@ import ProductItem from "./ProductItem";
 function DashboardContent() {
   const [filter, setFilter] = useState('');
 
-  //tenia error por no implementar la funcion 
-  //tengo que ejecutar la actulizacion, pero no regreso valores
   function onSelectFilter(filter){
     setFilter(filter);
   }

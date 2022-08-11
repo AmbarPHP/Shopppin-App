@@ -1,0 +1,21 @@
+.container_left{
+    
+          display: flex;
+          justify-content: center;
+          align-items:center;
+         
+          background-image:url(https://picsum.photos/1920/1200/?random&amp;gravity=south)
+}
+
+.container_right{
+   
+    background-color: rgba(85,51,255,.8);
+}
+
+.container_right .text--dark{
+    margin-bottom: .5rem!important;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #118585;
+}
+
