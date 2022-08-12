@@ -1,0 +1,31 @@
+
+
+
+.container {
+    .dashboard_container {
+        background: #eecda3;
+        background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+        background: linear-gradient(to right, #eecda3, #ef629f);
+    }
+    .container-row {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #d3e6e2 !important;
+        color: rgb(224, 116, 116);
+    }
+    .section-heading {
+        margin-bottom: 60px;
+        position: relative;
+    
+        .text-primary {
+            color: #53f!important;
+        }
+        h3{
+            font-weight: 400;
+        color: #161c2d;
+        }
+    }
+} 

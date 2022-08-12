@@ -1,16 +1,17 @@
 import { useState, Fragment, useEffect } from "react";
-import React from 'react'
+import React from "react";
 import Container from "react-bootstrap/Container";
 import ProductList from "./ProductList";
 import Product from "./ProductItem";
 import CategoriesList from "./CategoriesList";
 import ProductItem from "./ProductItem";
-
+import Footer from "./Footer";
+import carrusel1 from "../assets/happy-girl.jpg";
 
 function DashboardContent() {
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState("electronics");
 
-  function onSelectFilter(filter){
+  function onSelectFilter(filter) {
     setFilter(filter);
   }
 
@@ -19,16 +20,21 @@ function DashboardContent() {
     console.log("cambiando la categoria con un click", filter);
   }, [filter]);
 
-
-
   return (
-    <Container>
-      <CategoriesList onSelectFilter={(filter) => setFilter(filter)}></CategoriesList>
+    <Container className="dashboard_container">
+       <div className="section-heading">
+        <span className="text-primary bold">Discover</span>
+        <h3>What's Trending Now</h3>
+        </div>
+      <CategoriesList 
+        onSelectFilter={(filter) => setFilter(filter)}
+      ></CategoriesList>
       <ProductList subFilter={filter}>
-        <div>Los productos</div>
-        <ProductItem ></ProductItem>
+        <div> {"list products goes here"}</div>
+        <ProductItem></ProductItem>
       </ProductList>
-      </Container>
+      <Footer></Footer>
+    </Container>
   );
 }
 export default DashboardContent;

@@ -1,8 +1,11 @@
 import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Register.css";
-import Button from "react-bootstrap/Button";
+
+
+import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "./Register.scss";
 
 function Register() {
   const [firstName, setFirstName] = useState("");
@@ -32,7 +35,6 @@ function Register() {
     e.preventDefault();
 
     // Redirecting to home page after creation done
-    
   };
 
   const handleInputChange = (e) => {
@@ -82,120 +84,140 @@ function Register() {
     );
   };
 
-  /*return (
-    <Fragment>
-      <h1>Register</h1>
-        <p><Link to="/login">Go to Login</Link></p>
-        <p><Link to="/dashboard">Go to Reset Dashboard</Link></p>
-        <p><Link to="/forgotPassword">Go to Forgot Password</Link></p>
-        <p><Link to="/profile">Go to Profile</Link></p>
-        <p><Link to="/resetPassword">Go to Reset Password</Link></p>
-    </Fragment>
-  );*/
+
 
   return (
-    <div className="form">
-      <Form onSubmit={handleSubmit}>
-        <div className="form-body">
-          <h1>User Registration</h1>
+    <Container fluid>
+      <Row>
+        <Col md={6} lg={7} className="container_left">
+          <h2>
+            Get started with
+            <span className="bold d-block">Marina Store </span>
+          </h2>
+          <p className="lead text-contrast">Welcome register and be happy</p>
+          <div className="container__icon">
+            <p className="small bold text-contrast">Or sign in with</p>
+          </div>
+        </Col>
+        <Col md={5} lg={4} mx-auto className="container_right">
 
-          {/* Calling to the methods */}
-          <div className="messages">
-            {errorMessage()}
-            {successMessage()}
-          </div>
-
-          <div className="username">
-            <Form.Label type="text" className="form__label" htmlFor="firstName">
-              {" "}
-              First Name{" "}
-            </Form.Label>
-            <Form.Control
-              size="sm"
-              className="form__input"
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={handleInputChange}
-              placeholder="First Name"
-            />
-          </div>
-          <div className="lastname">
-            <Form.Label
-              type="text"
-              className="form__label"
-              htmlFor="lastName"
-              value={lastName}
-              onChange={(e) => handleInputChange(e)}
-            >
-              Last Name{" "}
-            </Form.Label>
-            <Form.Control
-              size="sm"
-              type="text"
-              id="lastName"
-              className="form__input"
-              value={lastName}
-              onChange={handleInputChange}
-              placeholder="LastName"
-            />
-          </div>
-
-          <div className="email">
-            <Form.Label type="text" className="form__label" htmlFor="email">
-              Email{" "}
-            </Form.Label>
-            <Form.Control
-              size="sm"
-              type="email"
-              id="email"
-              className="form__input"
-              placeholder="Email"
-              onChange={handleInputChange}
-              value={email}
-            />
-          </div>
-          <div className="password">
-            <Form.Label type="text" className="form__label" htmlFor="password">
-              Password{" "}
-            </Form.Label>
-            <Form.Control
-              size="sm"
-              className="form__input"
-              type="password"
-              id="password"
-              value={password}
-              onChange={handleInputChange}
-              placeholder="Password"
-            />
-          </div>
-          <div className="confirm-password">
-            <Form.Label
-              type="text"
-              className="form__label"
-              htmlFor="confirmPassword"
-            >
-              Confirm Password{" "}
-            </Form.Label>
-            <Form.Control
-              size="sm"
-              className="form__input"
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={handleInputChange}
-              placeholder="Confirm Password"
-            />
-          </div>
-        
-          <Button type="submit" className="btn">
-            Register
-          </Button>
-        
-        </div>
        
-      </Form>
-    </div>
+          <div className="form">
+          <p class="text-secondary mb-4 mb-md-6">Already have an account? <a href="/login" class="text-primary bold">Login here</a></p>
+            <Form onSubmit={handleSubmit}>
+              <div className="form-body">
+                <h1>User Registration</h1>
+
+                {/* Calling to the methods */}
+                <div className="messages">
+                  {errorMessage()}
+                  {successMessage()}
+                </div>
+
+                <div className="username">
+                  <Form.Label
+                    type="text"
+                    className="form__label"
+                    htmlFor="firstName"
+                  >
+                    {" "}
+                    First Name{" "}
+                  </Form.Label>
+                  <Form.Control
+                    size="sm"
+                    className="form__input"
+                    type="text"
+                    id="firstName"
+                    value={firstName}
+                    onChange={handleInputChange}
+                    placeholder="First Name"
+                  />
+                </div>
+                <div className="lastname">
+                  <Form.Label
+                    type="text"
+                    className="form__label"
+                    htmlFor="lastName"
+                    value={lastName}
+                    onChange={(e) => handleInputChange(e)}
+                  >
+                    Last Name{" "}
+                  </Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    id="lastName"
+                    className="form__input"
+                    value={lastName}
+                    onChange={handleInputChange}
+                    placeholder="LastName"
+                  />
+                </div>
+
+                <div className="email">
+                  <Form.Label
+                    type="text"
+                    className="form__label"
+                    htmlFor="email"
+                  >
+                    Email{" "}
+                  </Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="email"
+                    id="email"
+                    className="form__input"
+                    placeholder="Email"
+                    onChange={handleInputChange}
+                    value={email}
+                  />
+                </div>
+                <div className="password">
+                  <Form.Label
+                    type="text"
+                    className="form__label"
+                    htmlFor="password"
+                  >
+                    Password{" "}
+                  </Form.Label>
+                  <Form.Control
+                    size="sm"
+                    className="form__input"
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="confirm-password">
+                  <Form.Label
+                    type="text"
+                    className="form__label"
+                    htmlFor="confirmPassword"
+                  >
+                    Confirm Password{" "}
+                  </Form.Label>
+                  <Form.Control
+                    size="sm"
+                    className="form__input"
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={handleInputChange}
+                    placeholder="Confirm Password"
+                  />
+                </div>
+
+                <Button type="submit" className="btn">
+                  <a  style={{color: "white"}} href="/dashboard">Register</a>
+                </Button>
+              </div>
+            </Form>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

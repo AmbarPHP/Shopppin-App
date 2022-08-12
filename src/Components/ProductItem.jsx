@@ -1,4 +1,4 @@
-import "./ProductItem.css";
+import "./ProductItem.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React from "react";
@@ -17,8 +17,9 @@ function ProductItem({product}) {
     <Card key={product.image} className="h-100">
       <Card.Img
         src={product.image}
+        className="rounded mx-auto d-block"
         variant="top"
-        height="200px"
+        height="100px"
         style={{ objectFit: "cover" }}
       ></Card.Img>
       <Card.Body className=" d-flex flex-column">

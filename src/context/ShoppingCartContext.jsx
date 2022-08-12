@@ -64,7 +64,6 @@ export function ShoppingCartProvider({children}){
         increaseCarQuantity,
         decreaseCarQuantity,
         removeFromCart}}>
-        //render our children here
         {children}
     </ShoppingCartContext.Provider>
 }

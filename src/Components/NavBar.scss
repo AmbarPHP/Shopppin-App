@@ -1,0 +1,33 @@
+.btn-flat {
+    display: flex;
+        justify-content: center;
+        align-content: center;
+    background-color: green;
+    color: white;
+    width:"1rem";
+     height:"1rem";
+     transform: "translate(25%, 25%)";
+     .badget{
+        
+        color: "white";
+        width: "1.5rem";
+        height: "1.5rem";
+        position: "absolute";
+        bottom: "0";
+        right: "0";
+        transform: "translate(25%, 25%)";
+            
+      }
+  }
+
+  .btn-md {
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+  }
+  
+  a.nav-link{
+    color: #4b0840;
+    font-weight: 400;
+  }
+
+  

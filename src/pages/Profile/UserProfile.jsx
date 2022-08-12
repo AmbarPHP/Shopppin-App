@@ -5,9 +5,19 @@ import Col from 'react-bootstrap/Col';
 import { Card } from "react-bootstrap";
 
 function UserProfile(props) {
- const user=props.data;
-  console.log("se pasaron los datos",user);
+ //const user=props.data;
+  
   //verificar si el user esta autentificado
+
+  const user ={
+    "name":{
+        
+        firstname  :"Jhon",
+        lastname:"Doe"
+    }
+  };
+
+  console.log("se pasaron los datos",user);
   return (
     <Row className="">
         

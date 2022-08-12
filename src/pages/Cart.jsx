@@ -11,161 +11,233 @@ import product1 from "../assets/product1.png";
 
 function Cart() {
   return (
-    <Container fluid className="container-fluid">
-        <Row className="gap-y align-items-center text-center text-md-start">
-            <Col md={10}>
-                <h1 className="regular text-contrast">Your cart</h1>
-                <p className="mb-0 text-muted">Add another $25 and get Free Shipping</p>
-            </Col>
-            <Col>
-                <h2 className="h1 text-contrast">$654.<sup>00</sup></h2>
-                <p className="mb-0 text-muted">8 items</p>
-            </Col>
-        </Row>
-      <Row>
-        <Col md={12} sm={12}>
-            <div className="bg-light shadow-sm">
-            <div className="container bring-to-front py-0">
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb small py-2">
-                        <li className="breadcrumb-item"><a href="/dashboard">Dasboard</a></li>
-                        <li className="breadcrumb-item"><a href="/cart">Shop</a></li>
-                        <li className="breadcrumb-item active" aria-current="page">Cart</li>
-                    </ol>
-                </nav>
-            </div>
-            </div>
-        </Col>
-      </Row>
+   
+    <div className="container py-5 h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+        <div className="col">
+            <div className="card">
+            <div className="card-body p-4">
 
-      <Row sm={2} md={1} lg={1} xl={1} className="border-bottom py-4">
-        <Col sm={4} md={8} lg={9} xl={10}>
+                <div className="row">
 
-                
-                <div className=" media text-center d-sm-flex text-sm-start">
-                    <a sm={4} md={4} href="">
-                        <img src={product1} 
-                            className="me-sm-4 " 
-                        alt=""/>
-                    </a>
-                </div>
-                <div className=" ms-5 p-3 align-self-end col-sm-12 col-md-4 col-lg-6">
-                    <a 
-                    className="product-category text-muted font-xs" 
-                    href="">Wireless &amp; Bluetooth
-                    </a>
-                    <h6 className="product-title bold">
-                        <a 
-                        href="" 
-                        className="text-darker">Bluetooh Mouse</a>
-                    </h6>
-                        <p 
-                        className="my-0 text-muted small">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div 
-                        className="text-primary light lead mt-3">
-                            <span>$25.</span> <sup>00</sup>
-                        </div>
-                </div>
+                <div className="col-lg-7">
+                    <h5 className="mb-3"><a href="/dashboard" className="text-body"><i
+                        className="fas fa-long-arrow-alt-left me-2">
+                            </i>Continue shopping</a></h5>
+                    <hr/>
 
-        </Col>
-        <Col md={4} lg={3} xl={2}>
-            <form className="form text-center text-sm-start" novalidate="noValidate">
-                <div className="form-group mb-0">
-                    <label className="control-label font-sm text-light" htmlFor="q1">Quantity</label> <select className="form-select" id="q1">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <button className="btn btn-link px-0 text-danger" type="button">
-                    <i className="fas fa-times me-2"></i> Remove
-                </button>
-            </form>
-        </Col>
-      </Row>
-      <Row >
-        <div className="d-grid">
-            <button className="btn btn-outline-primary mt-4" type="button">
-                <i className="fas fa-redo me-2"></i>Update cart</button>
-        </div>
-      </Row>
-      <Row>
-        <div className="card-header">
-            <a href="#" className=" card-title fs-3 fw-bold"  >
-            <i className="fas fa-angle-down angle"></i>
-            Shipping Options</a>
-        </div>
-        <div className="card-body">
-        <form className="form form-check-list" method="post" novalidate="novalidate">
-            <div className="mb-3 shadow-sm p-3">
-                <div className="d-flex flex-column flex-sm-row align-items-sm-center"><div><div className="radio radio-primary">
-                    <input className="form-control" type="radio" id="free-shipping" name="shipping-options"/> 
-                    <label className="control-label text-darker" forHtml="free-shipping">
-                        Free Shipping</label>
-                    </div>
-                        <p className="small text-muted my-0">
-                            1 month - Tuesday, Dec 3rd 2019
-                        </p>
-                    </div>
-                    <div className="ms-sm-auto">
-                        <span className="font-sm text-primary">$0.00</span>
-                    </div>
-                </div>
-            </div>
-            <div className="mb-3 shadow-sm p-3">
-                <div className="d-flex flex-column flex-sm-row align-items-sm-center">
+                    <div className="d-flex justify-content-between align-items-center mb-4">
                     <div>
-                        <div className="radio radio-primary">
-                            <input className="form-control" type="radio" id="standard-shipping" name="shipping-options"/> 
-                            <label className="control-label text-darker" forHtml="standard-shipping">
-                                Standard Shipping
-                            </label>
-                        </div>
-                        <p className="small text-muted my-0">
-                            2 weeks - Tuesday, Dec 3rd 2019
-                        </p>
+                        <p className="mb-1">Shopping cart</p>
+                        <p className="mb-0">You have 4 items in your cart</p>
                     </div>
-                    <div className="ms-sm-auto">
-                        <span className="font-sm text-primary">$9.99</span>
-                    </div>
-                </div>
-            </div>
-            <div className="mb-3 shadow-sm p-3">
-                <div className="d-flex flex-column flex-sm-row align-items-sm-center">
                     <div>
-                        <div className="radio radio-primary">
-                            <input className="form-control" type="radio" id="express-shipping" name="shipping-options"/> 
-                            <label className="control-label text-darker" forHtml="express-shipping">Express Shipping</label>
+                        <p className="mb-0"><span className="text-muted">Sort by:</span> <a href="#!"
+                            className="text-body">price <i className="fas fa-angle-down mt-1"></i></a></p>
+                    </div>
+                    </div>
+
+                    <div className="card mb-3">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between">
+                        <div className="d-flex flex-row align-items-center">
+                            <div>
+                            <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                className="img-fluid rounded-3" 
+                                alt="Shopping item" style={{width: '65px'}}/>
+                            </div>
+                            <div className="ms-3">
+                            <h5>Iphone 11 pro</h5>
+                            <p className="small mb-0">256GB, Navy Blue</p>
+                            </div>
                         </div>
-                        <p className="small text-muted my-0">3 days - Tuesday, Dec 3rd 2019</p>
+                        <div className="d-flex flex-row align-items-center">
+                            <div style={{width: '50px'}}>
+                            <h5 className="fw-normal mb-0">2</h5>
+                            </div>
+                            <div style={{width: '80px'}}>
+                            <h5 className="mb-0">$900</h5>
+                            </div>
+                            <a href="#!" style={{color:'#cecece'}}><i className="fas fa-trash-alt"></i></a>
+                        </div>
+                        </div>
                     </div>
-                    <div className="ms-sm-auto">
-                        <span className="font-sm text-primary">$29.99</span>
                     </div>
+
+                    <div className="card mb-3">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between">
+                        <div className="d-flex flex-row align-items-center">
+                            <div>
+                            <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                                className="img-fluid rounded-3" alt="Shopping item" 
+                                style={{width:'65px'}}/>
+                            </div>
+                            <div className="ms-3">
+                            <h5>Samsung galaxy Note 10 </h5>
+                            <p className="small mb-0">256GB, Navy Blue</p>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center">
+                            <div style={{width:'50px'}}>
+                            <h5 className="fw-normal mb-0">2</h5>
+                            </div>
+                            <div style={{width:'80px'}}>
+                            <h5 className="mb-0">$900</h5>
+                            </div>
+                            <a href="#!" style={{color:'#cecece'}}><i className="fas fa-trash-alt"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div className="card mb-3">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between">
+                        <div className="d-flex flex-row align-items-center">
+                            <div>
+                            <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
+                                className="img-fluid rounded-3" alt="Shopping item" 
+                                style={{width:'65px'}}/>
+                            </div>
+                            <div className="ms-3">
+                            <h5>Canon EOS M50</h5>
+                            <p className="small mb-0">Onyx Black</p>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center">
+                            <div style={{width:'50px'}}>
+                            <h5 className="fw-normal mb-0">1</h5>
+                            </div>
+                            <div style={{width:'80px'}}>
+                            <h5 className="mb-0">$1199</h5>
+                            </div>
+                            <a href="#!" style={{color:'#cecece'}}><i className="fas fa-trash-alt"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div className="card mb-3 mb-lg-0">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between">
+                        <div className="d-flex flex-row align-items-center">
+                            <div>
+                            <img
+                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
+                                className="img-fluid rounded-3" alt="Shopping item" 
+                                style={{width:'65px'}}/>
+                            </div>
+                            <div className="ms-3">
+                            <h5>MacBook Pro</h5>
+                            <p className="small mb-0">1TB, Graphite</p>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-row align-items-center">
+                            <div style={{width:'50px'}}>
+                            <h5 className="fw-normal mb-0">1</h5>
+                            </div>
+                            <div style={{width:'80px'}}>
+                            <h5 className="mb-0">$1799</h5>
+                            </div>
+                            <a href="#!" style={{color:'#cecece'}}><i className="fas fa-trash-alt"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
                 </div>
+                <div className="col-lg-5">
+
+                    <div className="card bg-primary text-white rounded-3">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                        <h5 className="mb-0">Card details</h5>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                            className="img-fluid rounded-3" style={{width:'45px'}} alt="Avatar"/>
+                        </div>
+
+                        <p className="small mb-2">Card type</p>
+                        <a href="#!" type="submit" className="text-white"><i
+                            className="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                        <a href="#!" type="submit" className="text-white"><i
+                            className="fab fa-cc-visa fa-2x me-2"></i></a>
+                        <a href="#!" type="submit" className="text-white"><i
+                            className="fab fa-cc-amex fa-2x me-2"></i></a>
+                        <a href="#!" type="submit" className="text-white"><i className="fab fa-cc-paypal fa-2x"></i></a>
+
+                        <form className="mt-4">
+                        <div className="form-outline form-white mb-4">
+                            <input type="text" id="typeName" className="form-control form-control-lg" siez="17"
+                            placeholder="Cardholder's Name" />
+                            <label className="form-label" for="typeName">Cardholder's Name</label>
+                        </div>
+
+                        <div className="form-outline form-white mb-4">
+                            <input type="text" id="typeText" className="form-control form-control-lg" siez="17"
+                            placeholder="1234 5678 9012 3457" minLength="19" maxLength="19" />
+                            <label className="form-label" htmlFor="typeText">Card Number</label>
+                        </div>
+
+                        <div className="row mb-4">
+                            <div className="col-md-6">
+                            <div className="form-outline form-white">
+                                <input type="text" id="typeExp" className="form-control form-control-lg"
+                                placeholder="MM/YYYY" size="7"  minLength="7" maxLength="7" />
+                                <label className="form-label" htmlFor="typeExp">Expiration</label>
+                            </div>
+                            </div>
+                            <div className="col-md-6">
+                            <div className="form-outline form-white">
+                                <input type="password" id="typeText" className="form-control form-control-lg"
+                                placeholder="&#9679;&#9679;&#9679;" size="1" minLength="3" maxLength="3" />
+                                <label className="form-label" htmlFor="typeText">Cvv</label>
+                            </div>
+                            </div>
+                        </div>
+
+                        </form>
+
+                        <hr className="my-4"/>
+
+                        <div className="d-flex justify-content-between">
+                        <p className="mb-2">Subtotal</p>
+                        <p className="mb-2">$4798.00</p>
+                        </div>
+
+                        <div className="d-flex justify-content-between">
+                        <p className="mb-2">Shipping</p>
+                        <p className="mb-2">$20.00</p>
+                        </div>
+
+                        <div className="d-flex justify-content-between mb-4">
+                        <p className="mb-2">Total(Incl. taxes)</p>
+                        <p className="mb-2">$4818.00</p>
+                        </div>
+
+                        <button type="button" className="btn btn-info btn-block btn-lg">
+                        <div className="d-flex justify-content-between">
+                            <span>$4818.00</span>
+                            <span>Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i></span>
+                        </div>
+                        </button>
+
+                    </div>
+                    </div>
+
+                </div>
+
+                </div>
+
             </div>
-        </form>
-      </div>
-      <hr className="my-4"></hr>
-      <h6 className="text-darker">Shipping to</h6>
-      <p className="text-muted">Your Address, 1234 Your Street, Your City</p>
-      <div className="d-flex flex-wrap">
-        <p className="bold text-darker text-uppercase">Total</p>
-        <p className="h5 bold price ms-sm-auto">$654.00</p>
-      </div>
-      
-      </Row>
-      
+            </div>
+        </div>
+        </div>
+    </div>
 
-     
-
-      
-    
-    </Container>
   );
 }
 export default Cart; 

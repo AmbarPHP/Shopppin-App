@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./ProductList.css";
+import "./ProductList.scss";
 import ProductItem from "./ProductItem";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,13 +38,13 @@ function ProductList({ subFilter }){
   
   useEffect(() => {
     getProduct();
-  }, [subFilter]);
+  }, [subFilter, isLoading]);
 
   if (isLoading) {
     // ⬅️ si está cargando, mostramos un texto que lo indique
     return (
       <div className="App">
-        <h1>Cargando...</h1>
+        <h1>  </h1>
       </div>
     );
   }
@@ -53,12 +53,13 @@ function ProductList({ subFilter }){
 
   return (
     <div className="product__container" id="products">
-       <Row xs={1} md={2} lg={3} className="g-3">
-       {products.map((product, i) => {   
-        return (<Col xs={12} md={12} lg={12} >
-          <ProductItem product={product}/>
-        </Col>)
-      })}
+       <Row xs={1} sm={2} md={3} lg={4}  xl={6} xxl={6} className="g-3">
+          {products.map((product, index) => {   
+            return (
+            <Col className="product-margin" xs={12} sm={6} md={4} lg={3} xl={2} xxl={2}>
+            <ProductItem key={index} product={product}/>
+            </Col>)
+          })}
        </Row>
     
       

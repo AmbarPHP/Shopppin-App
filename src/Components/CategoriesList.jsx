@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { Container, Row, Col } from "react-bootstrap";
 
 function CategoriesList({ onSelectFilter }) {
   //TODO leer las categorias que existen
@@ -12,7 +11,6 @@ function CategoriesList({ onSelectFilter }) {
       .then((res) => res.json())
       .then((res) => {
         setCategory(res);
-    
         setIsLoading(false);
       });
   };
@@ -22,31 +20,22 @@ function CategoriesList({ onSelectFilter }) {
     console.log("obtuvo datos de categorias en effect", category);
   }, [isLoading]);
 
-  /**
-   * if (!isLoading) {
-    return (
-      <div className="App">
-        <h1>Cargando...</h1>
-      </div>
-    );
-  }
-   */
-
-  return category.map((item, index) => {
-    return (
-      <div>
-        <ButtonGroup >
-          <Button
-            key={item.id}
-            variant="secondary"
-            onClick={() => onSelectFilter(item)}
-          >
-            {item}
-          </Button>
-        </ButtonGroup>
-      </div>
-    );
+  const data=category.map((item, index) => {
+    return(
+    <Col > 
+        <h6  key={index} class="bold" style={{color:'fff', backgroud_color:'000'}}
+          onClick={() => onSelectFilter(item)}>
+          {item}
+        </h6>
+    </Col>)
   });
-}
 
+  return (
+    <Container className="container-row">
+      <Row>
+        {data}
+      </Row>
+  </Container>
+  );
+}
 export default CategoriesList;

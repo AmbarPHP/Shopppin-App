@@ -5,6 +5,8 @@ import Register from "./pages/Register";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Admin from "./Components/Admin";
+import Cart from "./pages/Cart";
+import NavBar from "./Components/NavBar";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -24,6 +26,7 @@ function App() {
     { path: "/forgotPassword", component: <ForgotPasswordPage /> },
     { path: "/resetPassword", component: <ResetPasswordPage /> },
     { path: "/profile", component: <ProfileContainer /> },
+    { path: "/cart", component: <Cart /> },
   ];
 
   const getRoutes = (allRoutes) =>
@@ -46,9 +49,12 @@ function App() {
     });
 
   return (
+    <>
+    <NavBar></NavBar>
     <Router>
       <Routes>{getRoutes(routes)}</Routes>
     </Router>
+    </>
   );
 }
 export default App;
