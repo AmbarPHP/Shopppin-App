@@ -37,7 +37,7 @@ function Cart() {
                     </div>
                     </div>
 
-                    <div className="card mb-3">
+                    <div className="card bg-primary text-white rounded-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-between">
                         <div className="d-flex flex-row align-items-center">
@@ -153,7 +153,7 @@ function Cart() {
                 <div className="col-lg-5">
 
                     <div className="card bg-primary text-white rounded-3">
-                    <div className="card-body">
+                    <div className="card-body bg-primary">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                         <h5 className="mb-0">Card details</h5>
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
