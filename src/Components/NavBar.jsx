@@ -26,9 +26,9 @@ function NavBar() {
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/register">Sig in</Nav.Link>
             <NavDropdown title="Shop" href="/cart" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Checkout</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item href="/cart">Checkout</NavDropdown.Item>
+              <NavDropdown.Item href="/dashboard">
+                Continue buying
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -53,7 +53,7 @@ function NavBar() {
       </Container>
     </Navbar>
       <Col sm={12} md={6} lg={6} className="px-0 order-md-2">
-        <img className="ms-auto" style={{backgroundColor:'blue', width:620, height:620}} 
+        <img className="ms-auto" style={{backgroundColor:'blue', width:320, height:320}} 
         src={headphones} alt="..."/>
       </Col>
       <Col sm={12} md={6} lg={4} className="ms-lg-auto">

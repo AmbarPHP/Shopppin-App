@@ -88,13 +88,13 @@ function Login(props) {
                 />
               </div>
 
-              <Button type="submit" className="btn" style={{ color:'#fff'}}>
-                <a href="/dashboard"> Register</a>
+              <Button type="submit" className="btn" >
+                <a href="/dashboard" mt-4 style={{ color:'#fff'}}> Register</a>
               </Button>
             </div>
           </Form>
 
-          <a  href="/forgotPassword" class="text-secondary mt-sm-6 mb-4 mb-md-6">
+          <a  href="/forgotPassword" mt-4 class="text-secondary mt-sm-6 mb-4 mb-md-6">
             Forgot your password?
           </a>
         </Col>

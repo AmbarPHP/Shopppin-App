@@ -29,28 +29,29 @@ function ProductItem({product}) {
         aling-items-baseline
         mb-4"
         >
-          <span className="ms-2 ">{product.title}</span>
-          <span className="ms-2 text-muted">{product.price}</span>
+          <span className="ms-2 fs-8">{product.title}</span>
+          <span className="ms-2 text-muted">{'$'+product.price}</span>
         </Card.Title>  
         <div className="mt-auto">
             {quantity === 0 ? (
-              <Button className="w-100" onClick={()=>increaseCarQuantity(product.id)}> + Add to de Cart</Button>
+              <Button className="w-100" 
+              onClick={()=>increaseCarQuantity(product.id)}> + Add to de Cart</Button>
             ) : (
               <div
-                className="d-flex aling-items-center flex-colum"
-                style={{ gap: ".5rem" }}
+                className="d-flex aling-items-center flex-column"
+                style={{ gap: '.5rem' }}
               >
                 <div
-                  className="d-flex align-items-center jsutify-content-center"
-                  style={{ gap: ".5rem" }}
+                  className="d-flex align-items-center justify-content-center"
+                  style={{ gap: '.5rem'  }}
                 >
                   <Button onClick={()=>increaseCarQuantity(product.id)}>+</Button>
                   <div>
-                    <span className="fs-3">{quantity}</span> in cart
+                    <span className="fs-7">{quantity}</span> in cart
                   </div>
                   <Button onClick={()=>decreaseCarQuantity(product.id)}>-</Button>
                 </div>
-                <Button variant="danger" onClick={()=>removeFromCart(product.id)}>remove</Button>
+                <Button variant="danger" style={{ width:'120px'}} onClick={()=>removeFromCart(product.id)}>remove</Button>
               </div>
             )}
         </div>

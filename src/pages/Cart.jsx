@@ -45,7 +45,7 @@ function Cart() {
                             <img
                                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
                                 className="img-fluid rounded-3" 
-                                alt="Shopping item" style={{width: '65px'}}/>
+                                alt="Shopping item" style={{width:'65px'}}/>
                             </div>
                             <div className="ms-3">
                             <h5>Iphone 11 pro</h5>

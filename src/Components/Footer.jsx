@@ -5,7 +5,7 @@ import "./Footer.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "./Footer.scss";
+import payment_methods from "../assets/payment-methods.png";
 
 function Footer() {
   return (
@@ -82,7 +82,8 @@ function Footer() {
             <p class="mt-4 small mb-md-0 text-center text-md-start">© 2021 
             <a href="5studios.net" target="_blank">5studios.net</a>. All Rights Reserved</p></div>
             <div class="col-md-6">
-              <img class="img-responsive ms-md-auto" style={{max_width:'136px'}} src="../img/shop/payment-methods.png" alt="Payment methods"/>
+              <img class="img-responsive ms-md-auto" style={{width:'136px'}} 
+              src={payment_methods} alt="Payment methods"/>
         </div></div>
       </Row>
     </Container>

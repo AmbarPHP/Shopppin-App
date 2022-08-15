@@ -61,8 +61,6 @@ function ProductList({ subFilter }){
             </Col>)
           })}
        </Row>
-    
-      
     </div>
   );
 }
