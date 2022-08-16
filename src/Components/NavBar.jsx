@@ -38,8 +38,8 @@ function NavBar() {
             </NavDropdown>
 
             <a  href="/cart">
-            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
-            <span class="top-0 start-100  p-2 bg-primary text-white  
+            <i className="fa-solid fa-cart-shopping fa-2xl"></i>
+            <span className="top-0 start-100  p-2 bg-primary text-white  
             border-light badge badge-pill badge-primary">
             2</span>
           </a>
@@ -57,10 +57,10 @@ function NavBar() {
         src={headphones} alt="..."/>
       </Col>
       <Col sm={12} md={6} lg={4} className="ms-lg-auto">
-            <div class="text-center text-lg-start text-lg-nowrap">
-              <h4 class="text-light font-weight-light mb-0 pb-1">What you were waiting for?</h4>
-              <h1 class="text-contrast bold display-4">The New Headphones Collection</h1>
-              <p class="lead text-light pb-3">Discover our selection of the best Headphones</p>
+            <div className="text-center text-lg-start text-lg-nowrap">
+              <h4 className="text-light font-weight-light mb-0 pb-1">What you were waiting for?</h4>
+              <h1 className="text-contrast bold display-4">The New Headphones Collection</h1>
+              <p className="lead text-light pb-3">Discover our selection of the best Headphones</p>
             </div>
       </Col>
     </Row>

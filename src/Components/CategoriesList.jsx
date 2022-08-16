@@ -23,7 +23,7 @@ function CategoriesList({ onSelectFilter }) {
   const data=category.map((item, index) => {
     return(
     <Col > 
-        <h6  key={index} class="bold" style={{color:'fff', backgroud_color:'000'}}
+        <h6  key={index} className="bold" style={{color:'fff', backgroud_color:'000'}}
           onClick={() => onSelectFilter(item)}>
           {item}
         </h6>

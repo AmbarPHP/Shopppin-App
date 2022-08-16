@@ -56,7 +56,7 @@ const ForgotPasswordPage = (props) => {
                   className="form__label"
                   htmlFor="email"
                 >
-             <p class="text-secondary mt-0 mb-4 mb-md-6">Enter your email bellow to retrieve your account or <Link to="/login" class="text-primary bold">Login</Link></p>
+             <p className="text-secondary mt-0 mb-4 mb-md-6">Enter your email bellow to retrieve your account or <Link to="/login" className="text-primary bold">Login</Link></p>
                 </Form.Label>
                 <Form.Control
                   size="sm"
