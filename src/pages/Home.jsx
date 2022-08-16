@@ -1,14 +1,16 @@
 import { useState, Fragment, useEffect } from "react";
 import React from "react";
 import Container from "react-bootstrap/Container";
-import ProductList from "./ProductList";
-import Product from "./ProductItem";
-import CategoriesList from "./CategoriesList";
-import ProductItem from "./ProductItem";
-import Footer from "./Footer";
+import ProductList from "../Components/ProductList";
+import Product from "../Components/ProductItem";
+import CategoriesList from "../Components/CategoriesList";
+import ProductItem from "../Components/ProductItem";
+import Footer from "../Components/Footer";
 import carrusel1 from "../assets/happy-girl.jpg";
+import { ShoppingCartProvider } from "../context/ShoppingCartContext";
+import logo from"../assets/logo.png";
 
-function DashboardContent() {
+function Home() {
   const [filter, setFilter] = useState("electronics");
 
   function onSelectFilter(filter) {
@@ -21,6 +23,7 @@ function DashboardContent() {
   }, [filter]);
 
   return (
+    <ShoppingCartProvider>
     <Container className="dashboard_container">
        <div className="section-heading">
         <span className="text-primary bold">Discover</span>
@@ -35,6 +38,7 @@ function DashboardContent() {
       </ProductList>
       <Footer></Footer>
     </Container>
+    </ShoppingCartProvider>
   );
 }
-export default DashboardContent;
+export default Home;
