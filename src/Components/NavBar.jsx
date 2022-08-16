@@ -27,7 +27,7 @@ function NavBar() {
             <Nav.Link href="/register">Sig in</Nav.Link>
             <NavDropdown title="Shop" href="/cart" id="basic-nav-dropdown">
               <NavDropdown.Item href="/cart">Checkout</NavDropdown.Item>
-              <NavDropdown.Item href="/dashboard">
+              <NavDropdown.Item href="/home">
                 Continue buying
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>

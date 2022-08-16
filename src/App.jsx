@@ -1,5 +1,5 @@
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import Dashboard from "./Components/Dashboard";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
@@ -22,7 +22,7 @@ function App() {
     { path: "/admin", component: <Admin/> },
     { path: "/register", component: <Register /> },
     { path: "/login", component: <Login /> },
-    { path: "/dashboard", component: <Dashboard /> },
+    { path: "/home", component: <Home /> },
     { path: "/forgotPassword", component: <ForgotPasswordPage /> },
     { path: "/resetPassword", component: <ResetPasswordPage /> },
     { path: "/profile", component: <ProfileContainer /> },

@@ -21,7 +21,7 @@ function Cart() {
                 <div className="row">
 
                 <div className="col-lg-7">
-                    <h5 className="mb-3"><a href="/dashboard" className="text-body"><i
+                    <h5 className="mb-3"><a href="/home" className="text-body"><i
                         className="fas fa-long-arrow-alt-left me-2">
                             </i>Continue shopping</a></h5>
                     <hr/>

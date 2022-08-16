@@ -7,7 +7,7 @@ function ResetPasswordPage (props) {
         <h1>ResetPasswordPage</h1>
   
         <p>
-          <Link to="/dashboard">Go to Dashboard</Link>
+          <Link to="/home">Go to Home</Link>
         </p>
       </Fragment>
     );
