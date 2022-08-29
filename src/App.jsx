@@ -12,8 +12,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Provider} from "react-redux";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
-
+import store from "./store";
 
 
 function App() {
@@ -49,12 +50,12 @@ function App() {
     });
 
   return (
-    <>
+    <Provider store="store">
     <NavBar></NavBar>
     <Router>
       <Routes>{getRoutes(routes)}</Routes>
     </Router>
-    </>
+    </Provider>
   );
 }
 export default App;
