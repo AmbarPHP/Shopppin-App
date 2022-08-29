@@ -15,9 +15,7 @@ function ProductList({ subFilter }){
   const [isLoading, setIsLoading] = useState(true);
 
   function getProduct() {
-    /**Will always "break" and show an [object] being appended to the end of the string,
-     *  because you're creating an object on the fly and then concatenating it onto the end
-     *  of the string.
+    /*
     The problem happens because of the curly braces that you're wrapping around url.
      What that's doing is creating a brand new object with url as its contents.
       In the code above, url should already be a string. 

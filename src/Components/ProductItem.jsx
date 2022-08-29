@@ -2,14 +2,13 @@ import "./ProductItem.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import { useShoppingCart } from "../context/ShoppingCartContext";
 
 
 
 function ProductItem({product}) {
 //function ProductItem({id, title, price, image}|{{id, title, price, image}: ProductItemProps): JSX.Element{
   console.log("los parametros son pasados", product.title);
-  const {getItemQuantity, increaseCarQuantity, decreaseCarQuantity, removeFromCart}=useShoppingCart()
+
 
   const quantity = getItemQuantity(product.id); 
 
@@ -64,10 +63,5 @@ function ProductItem({product}) {
 
 export default ProductItem;
 
-/*
-function getShoppingCart(): { getItemQuantity; increaseCarQuantity; decreaseCarQuantity; removeFromCart } {
-  throw new Error("Function not implemented.");
-}
-*/
 
 

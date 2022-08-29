@@ -7,7 +7,6 @@ import CategoriesList from "../Components/CategoriesList";
 import ProductItem from "../Components/ProductItem";
 import Footer from "../Components/Footer";
 import carrusel1 from "../assets/happy-girl.jpg";
-import { ShoppingCartProvider } from "../context/ShoppingCartContext";
 import logo from"../assets/logo.png";
 
 function Home() {
@@ -23,7 +22,6 @@ function Home() {
   }, [filter]);
 
   return (
-    <ShoppingCartProvider>
     <Container className="dashboard_container">
        <div className="section-heading">
         <span className="text-primary bold">Discover</span>
@@ -38,7 +36,7 @@ function Home() {
       </ProductList>
       <Footer></Footer>
     </Container>
-    </ShoppingCartProvider>
+   
   );
 }
 export default Home;
