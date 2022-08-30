@@ -1,15 +1,53 @@
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 import "./ProductItem.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { addToCart, decreaseCart,removeFromCart,clearCart,getTotals } from "../store/slices/cartSlice";
+import { useGetAllProductsQuery } from "../store/productApi";
 
 
 function ProductItem({product}) {
-//function ProductItem({id, title, price, image}|{{id, title, price, image}: ProductItemProps): JSX.Element{
-  console.log("los parametros son pasados", product.title);
+  //const navigate = useNavigate();
+
+  const { items: products, status } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
 
+  const { data, error, isLoading } = useGetAllProductsQuery();
+  console.log("Api", isLoading);
+
+
+/////////////////////////////////////
+
+const cart = useSelector((state) => state.cart);
+
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+  const handleDecreaseCart = (product) => {
+    dispatch(decreaseCart(product));
+  };
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+
+/////////////////////////////
   const quantity = 0;//getItemQuantity(product.id); 
 
   return (
@@ -33,9 +71,9 @@ function ProductItem({product}) {
         </Card.Title>  
         <div className="mt-auto">
             {quantity === 0 ? (
+
               <Button className="w-100" 
-              > 
-              {/* onClick={()=>increaseCarQuantity(product.id)} */}
+               onClick={()=>handleAddToCart(product.id)} > 
               + Add to de Cart
               </Button>
             ) : (

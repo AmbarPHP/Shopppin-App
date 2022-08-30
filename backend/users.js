@@ -220,3 +220,5 @@ const users= [
         "__v": 0
     }
 ];
+
+module.exports = users;
