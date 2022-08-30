@@ -10,7 +10,9 @@ import NavBar from "./Components/NavBar";
 import UserList from "./Components/UserList";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
@@ -32,6 +34,7 @@ function App() {
     { path: "/profile", component: <ProfileContainer /> },
     { path: "/cart", component: <Cart /> },
     { path: "/user", component: <UserList /> },
+    { path: "/seed", component: <UserList /> },
   ];
 
   const getRoutes = (allRoutes) =>
