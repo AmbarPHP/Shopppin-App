@@ -3,13 +3,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Link} from "react-router-dom";
-import { Button } from "react-bootstrap";
+//import { Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
-import yourImg from "../assets/shooping.svg";
+//import yourImg from "../assets/shooping.svg";
 import logo from "../assets/logo.png";
 import headphones from "../assets/blue-headphones.jpg";
 import "./NavBar.scss";
-import avatar from "../assets/avatar.jpg";
+//import avatar from "../assets/avatar.jpg";
 
 function NavBar() {
   return (

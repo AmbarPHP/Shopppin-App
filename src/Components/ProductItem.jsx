@@ -10,7 +10,7 @@ function ProductItem({product}) {
   console.log("los parametros son pasados", product.title);
 
 
-  const quantity = getItemQuantity(product.id); 
+  const quantity = 0;//getItemQuantity(product.id); 
 
   return (
     <Card key={product.image} className="h-100">
@@ -34,7 +34,10 @@ function ProductItem({product}) {
         <div className="mt-auto">
             {quantity === 0 ? (
               <Button className="w-100" 
-              onClick={()=>increaseCarQuantity(product.id)}> + Add to de Cart</Button>
+              > 
+              {/* onClick={()=>increaseCarQuantity(product.id)} */}
+              + Add to de Cart
+              </Button>
             ) : (
               <div
                 className="d-flex aling-items-center flex-column"
@@ -44,13 +47,19 @@ function ProductItem({product}) {
                   className="d-flex align-items-center justify-content-center"
                   style={{ gap: '.5rem'  }}
                 >
-                  <Button onClick={()=>increaseCarQuantity(product.id)}>+</Button>
+                  <Button 
+                  /* onClick={()=>increaseCarQuantity(product.id)} */
+                  >+</Button>
                   <div>
                     <span className="fs-7">{quantity}</span> in cart
                   </div>
-                  <Button onClick={()=>decreaseCarQuantity(product.id)}>-</Button>
+                  <Button 
+                  /* onClick={()=>decreaseCarQuantity(product.id)} */
+                  >-</Button>
                 </div>
-                <Button variant="danger" style={{ width:'120px'}} onClick={()=>removeFromCart(product.id)}>remove</Button>
+                <Button variant="danger" style={{ width:'120px'}} 
+                /* onClick={()=>removeFromCart(product.id)} */
+                >remove</Button>
               </div>
             )}
         </div>

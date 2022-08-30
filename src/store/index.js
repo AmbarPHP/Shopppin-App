@@ -1,5 +1,15 @@
-import {configureStore} from "@reduxjs/toolkid";
+import {configureStore} from "@reduxjs/toolkit";
+import { combineReducers } from 'redux'
 
-export default configureStore({
-    reducer:{}
-})
+import users from "./slices/users"
+
+const reducer = combineReducers({
+    users,
+ 
+  })
+  
+  const store = configureStore({
+    reducer,
+  })
+
+export default store;

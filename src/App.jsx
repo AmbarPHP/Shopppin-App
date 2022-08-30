@@ -7,14 +7,17 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Admin from "./Components/Admin";
 import Cart from "./pages/Cart";
 import NavBar from "./Components/NavBar";
+import UserList from "./Components/UserList";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
+
 //Crear rutas, es para moverse entre la app aunque sea SPA
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {Provider} from "react-redux";
-import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, Key } from "react";
-import store from "./store";
+
+
+
 
 
 function App() {
@@ -28,6 +31,7 @@ function App() {
     { path: "/resetPassword", component: <ResetPasswordPage /> },
     { path: "/profile", component: <ProfileContainer /> },
     { path: "/cart", component: <Cart /> },
+    { path: "/user", component: <UserList /> },
   ];
 
   const getRoutes = (allRoutes) =>
@@ -47,15 +51,15 @@ function App() {
       }
 
       return null;
-    });
+  });
 
   return (
-    <Provider store="store">
-    <NavBar></NavBar>
-    <Router>
-      <Routes>{getRoutes(routes)}</Routes>
-    </Router>
-    </Provider>
+    <>
+      <NavBar></NavBar>
+      <Router>
+        <Routes>{getRoutes(routes)}</Routes>
+      </Router>
+    </>    
   );
 }
 export default App;
