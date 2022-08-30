@@ -14,7 +14,7 @@ import "./NavBar.scss";
 function NavBar() {
   return (
     <>
-    <Row class="gap-y align-items-center" style={{backgroundColor:'rgba(0, 157, 206)'}}>
+    <Row className="gap-y align-items-center" style={{backgroundColor:'rgba(0, 157, 206)'}}>
     <Navbar sticky="top" className="bg-white shadow-sm mb-3" expand="md">
       <Container>
         <Navbar.Brand>
