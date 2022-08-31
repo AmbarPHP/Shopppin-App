@@ -14,9 +14,11 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
+      
       const existingIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
+      console.log("dentro del reducer addToCart", state);
 
       if (existingIndex >= 0) {
         state.cartItems[existingIndex] = {
@@ -27,8 +29,10 @@ export const cartSlice = createSlice({
           position: "bottom-left",
         });
       } else {
+       
         let tempProductItem = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProductItem);
+        console.log("dentro addCartSlice ", tempProductItem);
         toast.success("Product added to cart", {
           position: "bottom-left",
         });

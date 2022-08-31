@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {fecthAllUsers} from "../store/slices/users";
+import {fecthAllUsers} from "../store/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const UserList=()=>{

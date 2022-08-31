@@ -3,8 +3,8 @@ import {configureStore} from "@reduxjs/toolkit";
 import { combineReducers } from 'redux'
 
 
-import users from "./slices/users";
-import productsReducer, { productsFetch } from "./slices/productsSlice";
+import users from "./slices/userSlice";
+import productsReducer, { productsFetch } from "./slices/productSlice";
 import cartReducer, { getTotals } from "./slices/cartSlice";
 import { productsApi } from "./productApi";
 

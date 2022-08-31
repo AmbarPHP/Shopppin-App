@@ -10,7 +10,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { addToCart, decreaseCart,removeFromCart,clearCart,getTotals } from "../store/slices/cartSlice";
-import { useGetAllProductsQuery } from "../store/productApi";
+
 
 
 function ProductItem({product}) {
@@ -18,10 +18,6 @@ function ProductItem({product}) {
 
   const { items: products, status } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-
-
-  const { data, error, isLoading } = useGetAllProductsQuery();
-  console.log("Api", isLoading);
 
 
 /////////////////////////////////////
@@ -34,6 +30,7 @@ const cart = useSelector((state) => state.cart);
   }, [cart, dispatch]);
 
   const handleAddToCart = (product) => {
+    console.log("Click in handle");
     dispatch(addToCart(product));
   };
   const handleDecreaseCart = (product) => {
@@ -77,10 +74,8 @@ const cart = useSelector((state) => state.cart);
               + Add to de Cart
               </Button>
             ) : (
-              <div
-                className="d-flex aling-items-center flex-column"
-                style={{ gap: '.5rem' }}
-              >
+              <div className="d-flex aling-items-center flex-column"
+                style={{ gap: '.5rem' }}>
                 <div
                   className="d-flex align-items-center justify-content-center"
                   style={{ gap: '.5rem'  }}

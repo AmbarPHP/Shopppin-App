@@ -4,6 +4,8 @@ import ProductItem from "./ProductItem";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { useGetAllProductsQuery } from "../store/productApi";
+
 //todo FILTRAR ESTA CATEGORIA EN SUBCATEGORIAS
 //TODO cambiar a Catalog y pasarle solo los filtros
 function ProductList({ subFilter }){
@@ -14,13 +16,13 @@ function ProductList({ subFilter }){
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { data, error } = useGetAllProductsQuery(); //, isLoading
+  console.log("Api", isLoading);
+
+
   function getProduct() {
-    /*
-    The problem happens because of the curly braces that you're wrapping around url.
-     What that's doing is creating a brand new object with url as its contents.
-      In the code above, url should already be a string. 
-      This is how you concatenate two strings (notice the lack of curly braces): */
-    //quitar los {} para que sea un string
+  
+    //TODO HACER UN FILTER DE CATEGORIAS
     let category = subFilter;
     //esto me daria error, por que dice que lee un objeto en la prop
     console.log("filtrando la busqueda","https://fakestoreapi.com/products/category/" + category);
@@ -33,6 +35,8 @@ function ProductList({ subFilter }){
         setIsLoading(false);
       });
   }
+
+
   
   useEffect(() => {
     getProduct();
@@ -47,14 +51,14 @@ function ProductList({ subFilter }){
     );
   }
 
-
-
+//para ponerle un key unico al container RoW
+let i=0;
   return (
     <div className="product__container" id="products">
-       <Row xs={1} sm={2} md={3} lg={4}  xl={6} xxl={6} className="g-3">
+       <Row xs={1} sm={2} md={3} lg={4}  xl={6} xxl={6} className="g-3" >
           {products.map((product, index) => {   
             return (
-            <Col className="product-margin" xs={12} sm={6} md={4} lg={3} xl={2} xxl={2}>
+            <Col className="product-margin" xs={12} sm={6} md={4} lg={3} xl={2} xxl={2} key={i++}>
             <ProductItem key={index} product={product}/>
             </Col>)
           })}
