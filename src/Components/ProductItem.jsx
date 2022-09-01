@@ -63,7 +63,7 @@ function ProductItem({ product }) {
          <Card.Body
          
          className=" d-flex flex-column  ">
-        <a class="product-category text-muted font-xs" >
+        <a className="product-category text-muted font-xs" >
         {product.title.slice(0,42)}
         </a>
         <Card.Title
@@ -74,19 +74,19 @@ function ProductItem({ product }) {
           
         </Card.Title>
         
-        <div class="center-flex justify-content-between flex-wrap">
-          <div class="product-price d-flex align-items-end">
-            <div class="text-primary light lead">
+        <div className="center-flex justify-content-between flex-wrap">
+          <div className="product-price d-flex align-items-end">
+            <div className="text-primary light lead">
               <span>${product.price}.</span> <sup>00</sup>
             </div>
-            <del class="text-muted light strike-through ms-2">
+            <del className="text-muted light strike-through ms-2">
               <span>$54.</span> <sup>00</sup>
             </del>
           </div>
-          <div class="product-rating small text-alternate">
-            <i class="fas fa-star"></i> <i class="fas fa-star"></i>{" "}
-            <i class="fas fa-star"></i> <i class="fas fa-star"></i>{" "}
-            <i class="fas fa-star"></i>
+          <div className="product-rating small text-alternate">
+            <i className="fas fa-star"></i> <i className="fas fa-star"></i>{" "}
+            <i className="fas fa-star"></i> <i className="fas fa-star"></i>{" "}
+            <i className="fas fa-star"></i>
           </div>
         </div>
         <div className="mt-auto">
