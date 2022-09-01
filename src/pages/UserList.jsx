@@ -24,7 +24,7 @@ const UserList=()=>{
     
         return <div key={index} className="col-md-3">
             <div className="card">
-                <img src={user.avatar} alt="avatar"/>
+                
                 <div className='card-body'>
                     <h5 className='card-title'>{`${user.name.firstname} ${user.name.lastname}`}</h5>
                     <p className='card-text'>{user.email} </p>

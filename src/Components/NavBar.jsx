@@ -10,19 +10,22 @@ import logo from "../assets/logo.png";
 import headphones from "../assets/blue-headphones.jpg";
 import "./NavBar.scss";
 //import avatar from "../assets/avatar.jpg";
+import { useSelector } from "react-redux";
 
 function NavBar() {
+  const { cartTotalQuantity,cartTotalAmount } = useSelector((state) => state.cart);
   return (
-    <>
-    <Row className="gap-y align-items-center" style={{backgroundColor:'rgba(0, 157, 206)'}}>
-    <Navbar sticky="top" className="bg-white shadow-sm mb-3" expand="md">
-      <Container>
+    <div className="d-flex">
+    <Row className="gap-y " style={{backgroundColor:'rgba(0, 157, 206)'}}>
+
+    <Navbar sticky="top" className="bg-white   shadow-sm mb-3" expand="md">
+      <Container className="">
         <Navbar.Brand>
         <img src={logo} /><h1 >Marina Store</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
+        <Nav >
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/register">Sig in</Nav.Link>
             <NavDropdown title="Shop" href="/cart" id="basic-nav-dropdown">
@@ -30,43 +33,54 @@ function NavBar() {
               <NavDropdown.Item href="/home">
                 Continue buying
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              
+              
             </NavDropdown>
 
-            <a  href="/cart">
-            <i className="fa-solid fa-cart-shopping fa-2xl"></i>
-            <span className="top-0 start-100  p-2 bg-primary text-white  
-            border-light badge badge-pill badge-primary">
-            2</span>
-          </a>
-          </Nav>
-
+            <Nav.Link to="/cart">
+            <div className="nav-bag">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                fill="currentColor"
+                className="bi bi-handbag-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 1a2 2 0 0 0-2 2v2H5V3a3 3 0 1 1 6 0v2h-1V3a2 2 0 0 0-2-2zM5 5H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11v1.5a.5.5 0 0 1-1 0V5H6v1.5a.5.5 0 0 1-1 0V5z" />
+              </svg>
+              <span className="bag-quantity">
+                <span>{cartTotalQuantity}</span>
+                <span>{cartTotalAmount}</span>
+              </span>
+            </div>
+            </Nav.Link>
           
-    
-          
+        </Nav>
+  
         </Navbar.Collapse>
         
       </Container>
     </Navbar>
       <Col sm={12} md={6} lg={6} className="px-0 order-md-2">
-        <img className="ms-auto" style={{backgroundColor:'blue', width:320, height:320}} 
+        <img className="ms-auto align-items-end" style={{backgroundColor:'blue', width:320, height:320}} 
         src={headphones} alt="..."/>
       </Col>
-      <Col sm={12} md={6} lg={4} className="ms-lg-auto">
+
+      <Col sm={12} md={6} lg={4} className="ms-lg-auto align-items-end">
             <div className="text-center text-lg-start text-lg-nowrap">
               <h4 className="text-light font-weight-light mb-0 pb-1">What you were waiting for?</h4>
               <h1 className="text-contrast bold display-4">The New Headphones Collection</h1>
               <p className="lead text-light pb-3">Discover our selection of the best Headphones</p>
             </div>
       </Col>
+
+      
+
     </Row>
 
     
-    </>
+    </div>
   );
 }
 

@@ -7,7 +7,8 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Admin from "./Components/Admin";
 import Cart from "./pages/Cart";
 import NavBar from "./Components/NavBar";
-import UserList from "./Components/UserList";
+import UserList from "./pages/UserList";
+import SeedProduct from "./Components/Admin/SeedProduct";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -32,9 +33,9 @@ function App() {
     { path: "/forgotPassword", component: <ForgotPasswordPage /> },
     { path: "/resetPassword", component: <ResetPasswordPage /> },
     { path: "/profile", component: <ProfileContainer /> },
-    { path: "/cart", component: <Cart /> },
+    { path: "/cart", component: <Cart/> },
     { path: "/user", component: <UserList /> },
-    { path: "/seed", component: <UserList /> },
+    { path: "/seed", component: <SeedProduct/> },
   ];
 
   const getRoutes = (allRoutes) =>

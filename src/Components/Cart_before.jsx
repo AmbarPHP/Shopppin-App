@@ -10,7 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-const Cart = () => {
+const Cart_before = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -128,4 +128,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cart_before;

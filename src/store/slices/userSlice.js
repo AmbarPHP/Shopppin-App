@@ -11,7 +11,7 @@ export const userSlices= createSlice(
         reducers:{
             //responsable de actualizar el estado
             setUserList:(state, action)=>{
-                console.log("reducer seteando user:", action.payload);
+                console.log("userSlice reducer seteando user:", action.payload);
                 state.list=action.payload;
             }
         }

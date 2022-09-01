@@ -23,8 +23,8 @@ const reducer = combineReducers({
     getDefaultMiddleware().concat(productsApi.middleware),
   });
 
-  //obtiene los datos
+//obtiene los datos de los productos
 store.dispatch(productsFetch());
-store.dispatch(getTotals());
+//store.dispatch(getTotals());
 
 export default store;

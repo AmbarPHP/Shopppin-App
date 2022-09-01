@@ -20,13 +20,14 @@ function CategoriesList({ onSelectFilter }) {
     console.log("obtuvo datos de categorias en effect", category);
   }, [isLoading]);
 
+  
   const data=category.map((item, index) => {
     return(
-    <Col > 
-        <h6  key={index} className="bold" style={{color:'fff', backgroud_color:'000'}}
+    <Col key={index} className="justify-content-star mt-4"> 
+        <h5  key={index} className="bold" style={{color:'fff', backgroud_color:'000'}}
           onClick={() => onSelectFilter(item)}>
           {item}
-        </h6>
+        </h5>
     </Col>)
   });
 

@@ -55,10 +55,10 @@ function ProductList({ subFilter }){
 let i=0;
   return (
     <div className="product__container" id="products">
-       <Row xs={1} sm={2} md={3} lg={4}  xl={6} xxl={6} className="g-3" >
+       <Row xs={1} sm={2} md={3} lg={4}  xl={6} xxl={6} className="g-3 "  >
           {products.map((product, index) => {   
             return (
-            <Col className="product-margin" xs={12} sm={6} md={4} lg={3} xl={2} xxl={2} key={i++}>
+            <Col className="product-margin" xs={12} sm={6} md={4} lg={3} xl={3} xxl={3} key={i++}>
             <ProductItem key={index} product={product}/>
             </Col>)
           })}

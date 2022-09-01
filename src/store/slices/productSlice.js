@@ -5,15 +5,14 @@ const initialState = {
   items: [],
   status: null,
 };
-
-export const productsFetch = createAsyncThunk("products/productsFetch",
+//1arg arg action, 2 arg is payrol creator
+export const productsFetch = createAsyncThunk(
+  "products/productsFetch",
   async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/products"
-      );
+      const response = await axios.get("https://fakestoreapi.com/products");
       console.log("obtener los datos del API". response.data);
-      return response.data;
+      return response?.data;
     } catch (error) {
       console.log(error);
     }
@@ -21,6 +20,8 @@ export const productsFetch = createAsyncThunk("products/productsFetch",
 );
 
 //one file have both reducer an actions
+//reducer generarte action creators
+//extrareducer
 const productsSlice = createSlice({
   //to configure slice needs name, initial state
   name: "products",
@@ -28,6 +29,7 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: {
     [productsFetch.pending]: (state, action) => {
+      //immer
       state.status = "pending";
     },
     [productsFetch.fulfilled]: (state, action) => {
