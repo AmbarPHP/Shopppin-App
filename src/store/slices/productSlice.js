@@ -11,7 +11,7 @@ export const productsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
-      console.log("obtener los datos del API". response.data);
+      //console.log("obtener los datos del API", response.data);
       return response?.data;
     } catch (error) {
       console.log(error);

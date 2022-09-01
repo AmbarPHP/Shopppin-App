@@ -12,13 +12,14 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      
+      console.log("1) cartSlice.js despues de add to cart");
       const existingIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
       
 
       if (existingIndex >= 0) {
+        console.log("2) cartSlice.js si la cantidad es >0")
         state.cartItems[existingIndex] = {
           ...state.cartItems[existingIndex],
           cartQuantity: state.cartItems[existingIndex].cartQuantity + 1
@@ -28,10 +29,11 @@ export const cartSlice = createSlice({
         });
       } else {
        
+        console.log("2) cartSlice.js si la cantidad es =0")
         let tempProductItem = { ...action.payload, cartQuantity: 1 };
         //si estaba en ceros
         state.cartItems.push(tempProductItem);
-        console.log("2) dentro addCartSlice.js ", tempProductItem);
+        console.log("3) dentro addCartSlice.js ", tempProductItem);
         toast.success("Product added to cart", {
           position: "bottom-left",
         });
@@ -39,6 +41,7 @@ export const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     decreaseCart(state, action) {
+      console.log("cartSlice.js despues decrese to cart")
       const itemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );

@@ -34,7 +34,7 @@ function ProductItem({ product }) {
   }, [cart, dispatch]);
 
   const handleAddToCart = (product) => {
-    console.log("Click in handle");
+    console.log("Click in handle Add to cart");
     dispatch(addToCart(product));
   };
   const handleDecreaseCart = (product) => {
