@@ -121,6 +121,10 @@ function ProductItem({ product }) {
                   -
                 </Button>
               </div>
+              <div
+                className="d-flex align-items-center justify-content-center"
+                style={{ gap: ".5rem" }}
+              >
               <Button
                 variant="danger"
                 style={{ width: "120px" }}
@@ -128,6 +132,7 @@ function ProductItem({ product }) {
               >
                 remove
               </Button>
+              </div>
             </div>
           )}
         </div>
