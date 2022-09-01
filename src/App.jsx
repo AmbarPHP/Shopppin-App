@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
+import {AuthProvider} from "./context/authContext";
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -57,12 +57,12 @@ function App() {
   });
 
   return (
-    <>
+    <AuthProvider>
       <NavBar></NavBar>
       <Router>
         <Routes>{getRoutes(routes)}</Routes>
       </Router>
-    </>    
+    </AuthProvider>    
   );
 }
 export default App;
