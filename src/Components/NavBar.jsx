@@ -51,7 +51,7 @@ function NavBar() {
               </svg>
               <span className="bag-quantity">
                 <span>{cartTotalQuantity}</span>
-                <span>{cartTotalAmount}</span>
+               {/*  <span>{cartTotalAmount}</span> */}
               </span>
             </div>
             </Nav.Link>

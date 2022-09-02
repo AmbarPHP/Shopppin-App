@@ -34,7 +34,7 @@ function ProductItem({ product }) {
   }, [cart, dispatch]);
 
   const handleAddToCart = (product) => {
-    console.log("Click in handle Add to cart");
+    console.log("Click in handle Add to cart id", product);
     dispatch(addToCart(product));
   };
   const handleDecreaseCart = (product) => {
@@ -93,7 +93,7 @@ function ProductItem({ product }) {
           {quantity === 0 ? (
             <Button
               className="w-100"
-              onClick={() => handleAddToCart(product.id)}
+              onClick={() => handleAddToCart(product)}
             >
               + Add to de Cart
             </Button>
@@ -107,7 +107,7 @@ function ProductItem({ product }) {
                 style={{ gap: ".5rem" }}
               >
                 <Button
-                onClick={() => handleAddToCart(product.id)}
+                onClick={() => handleAddToCart(product)}
                  
                 >
                   +

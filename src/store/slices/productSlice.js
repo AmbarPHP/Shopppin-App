@@ -5,7 +5,7 @@ const initialState = {
   items: [],
   status: null,
 };
-//1arg arg action, 2 arg is payrol creator
+//1arg name of action, 2 arg is payrol creator
 export const productsFetch = createAsyncThunk(
   "products/productsFetch",
   async () => {

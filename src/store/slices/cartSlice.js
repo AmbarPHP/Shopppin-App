@@ -12,28 +12,41 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      console.log("1) cartSlice.js despues de add to cart");
-      const existingIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+   
+      const index = state.cartItems.findIndex(
+        (item) => item.product=== action.payload.id
       );
+ 
       
+        //si existe , lo encontro
 
-      if (existingIndex >= 0) {
-        console.log("2) cartSlice.js si la cantidad es >0")
-        state.cartItems[existingIndex] = {
-          ...state.cartItems[existingIndex],
-          cartQuantity: state.cartItems[existingIndex].cartQuantity + 1
-        };
+     
+      if (index >-1) {
+        console.log("si ya existe");
+        state.cartItems[index]={...state.cartItems[index],
+          cartQuantity: state.cartItems[index].cartQuantity + 1
+      }
+          
+      console.log("*) setea el cartItems ",state.cartItems[index],"quantity", state.cartItems[index].cartQuantity);
+        //console.log("3) setea el cartItems a", state.cartItems[existingIndex]);
         toast.info("Increased product quantity", {
           position: "bottom-left",
         });
       } else {
+        //si no existe 
+        console.log("2) si la cantidad en cartItems es =0") 
        
-        console.log("2) cartSlice.js si la cantidad es =0")
-        let tempProductItem = { ...action.payload, cartQuantity: 1 };
+        let tempProductItem = { 
+          product:action.payload.id,
+          name:action.payload.title,
+          prices:action.payload.price,
+          image: action.payload.image,
+          cartQuantity: 1 };
         //si estaba en ceros
         state.cartItems.push(tempProductItem);
-        console.log("3) dentro addCartSlice.js ", tempProductItem);
+        console.log("3) setea el cartItems a ", tempProductItem);
+
+  
         toast.success("Product added to cart", {
           position: "bottom-left",
         });
@@ -84,10 +97,13 @@ export const cartSlice = createSlice({
       });
     },
     getTotals(state, action) {
+
+      console.log("2) calculando el total")
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
+          const { prices, cartQuantity } = cartItem;
+          console.log(") precio", prices," cartQuantity",cartQuantity );
+          const itemTotal = prices * cartQuantity;
 
           cartTotal.total += itemTotal;
           cartTotal.quantity += cartQuantity;
