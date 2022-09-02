@@ -8,8 +8,17 @@ import ProductItem from "../Components/ProductItem";
 import Footer from "../Components/Footer";
 import carrusel1 from "../assets/happy-girl.jpg";
 import logo from"../assets/logo.png";
+//voy a leer la informacion del context
+import {useAuth} from "../context/authContext";
 
+
+//es el layout principal
 function Home() {
+  //Nos ahoramos esto y lo pasamos una funcion dentro de authContext
+  //const {user}= useAuth();
+  //console.log("auth context val",user);
+
+
   const [filter, setFilter] = useState("electronics");
 
   function onSelectFilter(filter) {
@@ -34,6 +43,14 @@ function Home() {
         <div> {"list products goes here"}</div>
         <ProductItem></ProductItem>
       </ProductList>
+     
+    {/* tODO 
+    PAGINACION 
+    <div className="align-content-center" >
+        <button className="bg-primary text-white" >Previous</button>
+        <button className="bg-success text-white" >Next</button>
+    </div> */}
+
       <Footer></Footer>
     </Container>
    

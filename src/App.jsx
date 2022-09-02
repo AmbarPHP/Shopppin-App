@@ -4,17 +4,16 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-import Admin from "./Components/Admin";
+
 import Cart from "./pages/Cart";
 import NavBar from "./Components/NavBar";
 import UserList from "./pages/UserList";
-import SeedProduct from "./Components/Admin/SeedProduct";
 import './App.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
+import {AuthProvider} from "./context/authContext";
 
 //Crear rutas, es para moverse entre la app aunque sea SPA
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -26,7 +25,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const routes = [
     { path: "/", component: <Login /> },
-    { path: "/admin", component: <Admin/> },
+
     { path: "/register", component: <Register /> },
     { path: "/login", component: <Login /> },
     { path: "/home", component: <Home /> },
@@ -35,7 +34,7 @@ function App() {
     { path: "/profile", component: <ProfileContainer /> },
     { path: "/cart", component: <Cart/> },
     { path: "/user", component: <UserList /> },
-    { path: "/seed", component: <SeedProduct/> },
+
   ];
 
   const getRoutes = (allRoutes) =>
@@ -58,12 +57,12 @@ function App() {
   });
 
   return (
-    <>
+    <AuthProvider>
       <NavBar></NavBar>
       <Router>
         <Routes>{getRoutes(routes)}</Routes>
       </Router>
-    </>    
+    </AuthProvider>    
   );
 }
 export default App;

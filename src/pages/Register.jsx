@@ -1,18 +1,22 @@
 import { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {useAuth} from "../context/authContext";
 
 
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Register.scss";
+import { sign } from "crypto";
 
 function Register() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+
+  const {signUp}= useAuth();
+  const [user, setUser]=useState({
+    email:"",
+    password:""
+  })
 
   // States for checking the errors
   const [submitted, setSubmitted] = useState(false);
@@ -21,39 +25,28 @@ function Register() {
   // Using useNavigation for redirecting to pages
   let history = useNavigate();
 
-  const handleSubmit = (e) => {
-    if (firstName === "" || email === "" || password === "") {
-      console.log("error shows here");
-      setError(true);
-    } else {
-      setSubmitted(true);
-      setError(false);
-      console.log(firstName, lastName, email, password, confirmPassword);
-      history("/dashboard");
-    }
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    // Redirecting to home page after creation done
+    console.log("signUp", user); //enviando a firebase, el data del form
+
+    try {
+      const resp= await signUp(user.email, user.password);
+      console.log("validando correo", resp);
+      
+       // history("/home");
+      
+    } catch (error) {
+      setError(error);
+    }
+    
   };
 
   const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    if (id === "firstName") {
-      setFirstName(value);
-    }
-    if (id === "lastName") {
-      setLastName(value);
-    }
-    if (id === "email") {
-      setEmail(value);
-    }
-    if (id === "password") {
-      setPassword(value);
-    }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
+    const { name, value } = e.target;
+    console.log("handle change", name, value);
+     setUser({...user,[name]:value});
   };
 
   // Showing success message
@@ -65,7 +58,7 @@ function Register() {
           display: submitted ? "" : "none",
         }}
       >
-        <h1>User {firstName} successfully registered!!</h1>
+        <h1>User {user.email} successfully registered!!</h1>
       </div>
     );
   };
@@ -99,60 +92,21 @@ function Register() {
             <p className="small bold text-contrast">Or sign in with</p>
           </div>
         </Col>
-        <Col md={5} lg={4} mx-auto className="container_right">
+        <Col md={5} lg={4}  className="mx-auto container_right">
 
-       
+          {/* Calling to the methods */}
+          <div className="messages">
+                  {errorMessage()}
+                  {successMessage()}
+          </div>
+
           <div className="form">
-          <p class="text-secondary mb-4 mb-md-6">Already have an account? <a href="/login" class="text-primary bold">Login here</a></p>
+          <p className="text-secondary mb-4 mb-md-6">Already have an account? <a href="/login" className="text-primary bold">Login here</a></p>
             <Form onSubmit={handleSubmit}>
               <div className="form-body">
                 <h1>User Registration</h1>
 
-                {/* Calling to the methods */}
-                <div className="messages">
-                  {errorMessage()}
-                  {successMessage()}
-                </div>
-
-                <div className="username">
-                  <Form.Label
-                    type="text"
-                    className="form__label"
-                    htmlFor="firstName"
-                  >
-                    {" "}
-                    First Name{" "}
-                  </Form.Label>
-                  <Form.Control
-                    size="sm"
-                    className="form__input"
-                    type="text"
-                    id="firstName"
-                    value={firstName}
-                    onChange={handleInputChange}
-                    placeholder="First Name"
-                  />
-                </div>
-                <div className="lastname">
-                  <Form.Label
-                    type="text"
-                    className="form__label"
-                    htmlFor="lastName"
-                    value={lastName}
-                    onChange={(e) => handleInputChange(e)}
-                  >
-                    Last Name{" "}
-                  </Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    id="lastName"
-                    className="form__input"
-                    value={lastName}
-                    onChange={handleInputChange}
-                    placeholder="LastName"
-                  />
-                </div>
+             
 
                 <div className="email">
                   <Form.Label
@@ -165,11 +119,11 @@ function Register() {
                   <Form.Control
                     size="sm"
                     type="email"
-                    id="email"
+                    name="email"
                     className="form__input"
                     placeholder="Email"
                     onChange={handleInputChange}
-                    value={email}
+                    value={user.email}
                   />
                 </div>
                 <div className="password">
@@ -184,8 +138,8 @@ function Register() {
                     size="sm"
                     className="form__input"
                     type="password"
-                    id="password"
-                    value={password}
+                    name="password"
+                    value={user.password}
                     onChange={handleInputChange}
                     placeholder="Password"
                   />
@@ -203,14 +157,14 @@ function Register() {
                     className="form__input"
                     type="password"
                     id="confirmPassword"
-                    value={confirmPassword}
+                    value={user.confirmPassword}
                     onChange={handleInputChange}
                     placeholder="Confirm Password"
                   />
                 </div>
 
                 <Button type="submit" className="btn">
-                  <a  style={{color: "white"}} href="/dashboard">Register</a>
+                  <a  style={{color: "white"}} >Register</a>
                 </Button>
               </div>
             </Form>

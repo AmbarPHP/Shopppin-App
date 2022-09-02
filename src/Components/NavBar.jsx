@@ -1,8 +1,7 @@
-
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link} from "react-router-dom";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 //import { Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 //import yourImg from "../assets/shooping.svg";
@@ -11,9 +10,14 @@ import headphones from "../assets/blue-headphones.jpg";
 import "./NavBar.scss";
 //import avatar from "../assets/avatar.jpg";
 import { useSelector } from "react-redux";
+import { useAuth } from "../context/authContext";
 
 function NavBar() {
-  const { cartTotalQuantity,cartTotalAmount } = useSelector((state) => state.cart);
+  const { user } = useAuth();
+
+  const { cartTotalQuantity, cartTotalAmount } = useSelector(
+    (state) => state.cart
+  );
   return (
     <div className="d-flex">
     <Row className="gap-y " style={{backgroundColor:'rgba(0, 157, 206)'}}>
@@ -25,6 +29,7 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" >
+          
         <Nav >
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/register">Sig in</Nav.Link>
@@ -51,7 +56,7 @@ function NavBar() {
               </svg>
               <span className="bag-quantity">
                 <span>{cartTotalQuantity}</span>
-               {/*  <span>{cartTotalAmount}</span> */}
+                {/* <span>{cartTotalAmount}</span> */}
               </span>
             </div>
             </Nav.Link>

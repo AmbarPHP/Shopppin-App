@@ -1,24 +1,44 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.scss";
+import { useAuth } from "../context/authContext";
 
 function Login(props) {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  let history = useNavigate();
+  const { login } = useAuth();
+
+  const [error, setError] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  // States for checking the errors
+  const [submitted, setSubmitted] = useState(false);
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
+    console.log("signUp", user); //enviando a firebase
+
+    try {
+      const response=await login(user.email, user.password);
+      console.log("validando correo", response);
+      //history("/home");
+    } catch (error) {
+      setError(error);
+    }
   };
 
   const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    if (id === "userName") {
-      setUserName(value);
-    }
-    setPassword(value);
+    const { name, value } = e.target; //console.log("handle change", name, value);
+    setUser({ ...user, [name]: value });
   };
 
   return (
@@ -42,12 +62,14 @@ function Login(props) {
             </a>
           </p>
 
+          <div className="messages">{error}</div>
+
           <Form onSubmit={handleSubmit}>
             <div className="form-body">
               <h1>Login</h1>
 
-              {/* Calling to the methods */}
-              <div className="messages"></div>
+              
+              
 
               <div className="username">
                 <Form.Label
@@ -56,16 +78,16 @@ function Login(props) {
                   htmlFor="firstName"
                 >
                   {" "}
-                  user name{" "}
+                  Email{" "}
                 </Form.Label>
                 <Form.Control
                   size="sm"
                   className="form__input"
                   type="text"
-                  id="userName"
-                  value={userName}
+                  name="email"
+                  value={user.email}
                   onChange={handleInputChange}
-                  placeholder="User Name"
+                  placeholder="Email"
                 />
               </div>
 
@@ -81,8 +103,8 @@ function Login(props) {
                   size="sm"
                   className="form__input"
                   type="password"
-                  id="password"
-                  value={password}
+                  name="password"
+                  value={user.password}
                   onChange={handleInputChange}
                   placeholder="Password"
                 />
@@ -94,7 +116,7 @@ function Login(props) {
             </div>
           </Form>
 
-          <a  href="/forgotPassword" className="mt-4 text-secondary mt-sm-6 mb-4 mb-md-6">
+          <a  href="/forgotPassword" className="mt-4" className="text-secondary mt-sm-6 mb-4 mb-md-6">
             Forgot your password?
           </a>
         </Col>
