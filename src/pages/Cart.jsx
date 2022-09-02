@@ -63,7 +63,7 @@ const Cart = () => {
                     cart.cartItems.map((cartItem) => {
                       console.log("lo que tiene el map", cartItem.image);
                       return (
-                        <div className="card mb-3">
+                        <div className="card mb-3" key={cartItem.product}>
                           <div className="card-body">
                             <div className="d-flex justify-content-between">
                               <div className="d-flex flex-row align-items-center">
@@ -138,7 +138,7 @@ const Cart = () => {
                             siez="17"
                             placeholder="Cardholder's Name"
                           />
-                          <label className="form-label" for="typeName">
+                          <label className="form-label" htmlFor="typeName">
                             Cardholder's Name
                           </label>
                         </div>

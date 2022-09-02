@@ -147,8 +147,8 @@ function Footer() {
       <Row className="justify-content-start mt-4">
         <Col md={4}>
           <p className="mt-4 small mb-md-4  text-md-start">
-            © 2021
-            <a href="" style={{ color: "#fff" }} target="_blank">
+            © 2022 
+            <a className="mt-4 small mx-4" href="" style={{ color: "#fff" }} >
               Perla Marina Franco{" "}
             </a>
             . All Rights Reserved
@@ -156,7 +156,7 @@ function Footer() {
         </Col>
         <Col md={{ span: 4, offset: 4 }}>
           <img
-            className="img-responsive ms-md-auto"
+            className="img-responsive ms-md-4"
             style={{ width: "136px" }}
             src={payment_methods}
             alt="Payment methods"
