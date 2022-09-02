@@ -34,7 +34,7 @@ function Login(props) {
             <p className="small bold text-contrast">Or sign in with</p>
           </div>
         </Col>
-        <Col md={5} lg={4} mx-auto className="container_right">
+        <Col md={5} lg={4}  className="container_right mx-auto">
           <p className="text-secondary mt-sm-6 mb-4 mb-md-6">
             Don't have an account yet?{" "}
             <a href="register" className="text-primary bold">
@@ -89,12 +89,12 @@ function Login(props) {
               </div>
 
               <Button type="submit" className="btn" >
-                <a href="/dashboard" mt-4 style={{ color:'#fff'}}> Register</a>
+                <a href="/dashboard" className="mt-4" style={{ color:'#fff'}}> Register</a>
               </Button>
             </div>
           </Form>
 
-          <a  href="/forgotPassword" mt-4 class="text-secondary mt-sm-6 mb-4 mb-md-6">
+          <a  href="/forgotPassword" className="mt-4 text-secondary mt-sm-6 mb-4 mb-md-6">
             Forgot your password?
           </a>
         </Col>
