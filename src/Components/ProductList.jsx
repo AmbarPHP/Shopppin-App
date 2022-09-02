@@ -17,7 +17,7 @@ function ProductList({ subFilter }){
   const [isLoading, setIsLoading] = useState(true);
 
   const { data, error } = useGetAllProductsQuery(); //, isLoading
-  console.log("Api", isLoading);
+  //console.log("Api", data);
 
 
   function getProduct() {
@@ -25,7 +25,7 @@ function ProductList({ subFilter }){
     //TODO HACER UN FILTER DE CATEGORIAS
     let category = subFilter;
     //esto me daria error, por que dice que lee un objeto en la prop
-    console.log("filtrando la busqueda","https://fakestoreapi.com/products/category/" + category);
+    //console.log("filtrando la busqueda","https://fakestoreapi.com/products/category/" + category);
     //.filter((item) => item.category === {subFilter})
     const UrlAPI = "https://fakestoreapi.com/products/category/" + category;
     fetch(UrlAPI)

@@ -17,7 +17,7 @@ function CategoriesList({ onSelectFilter }) {
 
   useEffect(() => {
     getCategory();
-    console.log("obtuvo datos de categorias en effect", category);
+    //console.log("obtuvo datos de categorias en effect", category);
   }, [isLoading]);
 
   
