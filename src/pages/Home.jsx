@@ -18,7 +18,7 @@ function Home() {
 
   useEffect(() => {
     onSelectFilter(filter);
-    console.log("cambiando la categoria con un click", filter);
+    //console.log("cambiando la categoria con un click", filter);
   }, [filter]);
 
   return (
